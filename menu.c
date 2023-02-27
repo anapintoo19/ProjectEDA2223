@@ -1,9 +1,7 @@
 #include <stdio.h>
+#include <string.h>
 
-void main() {
-	printf("jkefjkefkjlelsd");
-}
 
-void main() {
-	int y;
+void mostrarMenu() {
+
 }

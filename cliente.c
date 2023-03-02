@@ -11,7 +11,7 @@ void listarClientes(Cliente* cliente)
 	printf("****************************************************************************\n\n");
 	while (cliente != NULL)
 	{
-		printf(" ID: %d     Nome: %s     Morada: %s      NIF: %d      Saldo:%.2f\n", cliente->idCliente, cliente->nomeCliente, cliente->moradaCliente, cliente->nifCliente, cliente->saldo);
+		printf(" ID: %d     Nome: %s     Morada: %s      NIF: %d      Saldo:%.2f\n", cliente->idCliente, cliente->nomeCliente, cliente->moradaCliente, cliente->nifCliente, cliente->saldo)
 		cliente = cliente->seguinte;
 	}
 	printf("\n****************************************************************************\n");

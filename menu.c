@@ -75,15 +75,15 @@ Cliente* criaCliente(Cliente* cliente) {
 	Cliente* clientes = NULL;
 
 	printf("ID do cliente: ");
-	scanf_s("%d", &idCliente);
+	scanf("%d", &idCliente);
 	printf("Nome do cliente: ");
-	scanf_s("%s", &nomeCliente);
+	scanf("%s", &nomeCliente);
 	printf("Morada: ");
-	scanf_s("%s", &moradaCliente);
+	scanf("%s", &moradaCliente);
 	printf("NIF: ");
-	scanf_s("%d", &nifCliente);
+	scanf("%d", &nifCliente);
 	printf("Saldo: ");
-	scanf_s("%.2f", &saldo);
+	scanf("%.2f", &saldo);
 
 	if (idCliente != NULL) {
 		printf("\n\Já exite um cliente com o nome '%s'\n", nomeCliente);
@@ -101,7 +101,7 @@ Cliente* removeCliente(Cliente* cliente) {
 	listarClientes(cliente);
 
 	printf("ID do Cliente que pretende remover: ");
-	scanf_s("%d", &idCliente);
+	scanf("%d", &idCliente);
 
 	return removeCliente(cliente, idCliente);
 }
@@ -117,7 +117,7 @@ Cliente* alterarCliente(Cliente* cliente, int nifCliente, char nomeNovo[]) {
 	}
 
 	if (nodoAtual != NULL) {
-		strcpy_s(nodoAtual->nomeCliente, nomeNovo);
+		strcpy(nodoAtual->nomeCliente ,nomeNovo);
 	}
 
 	return(cliente);
@@ -136,11 +136,11 @@ Gestor* criaGestor(Gestor* gestor) {
 	Gestor* gestores = NULL;
 
 	printf("ID do gestor: ");
-	scanf_s("%d", &idGestor);
+	scanf("%d", &idGestor);
 	printf("Nome do gestor: ");
-	scanf_s("%s", &nomeGestor);
+	scanf("%s", &nomeGestor);
 	printf("Insira a password: ");
-	scanf_s("%s", &password);
+	scanf("%s", &password);
 
 	if (idGestor != NULL) {
 		printf("\n\Já existe um gestor com o nome '%s'\n", nomeGestor);
@@ -159,7 +159,7 @@ Gestor* removeGestor(Gestor* gestor) {
 	listarGestores(gestor);
 
 	printf("ID do gestor que pretende remover: ");
-	scanf_s("%d", &idGestor);
+	scanf("%d", &idGestor);
 
 	return removeGestor(gestor, idGestor);
 }
@@ -177,7 +177,7 @@ Gestor* alterarGestor(Gestor* gestor, int idGestor, char nomeNovo[]) {
 	}
 
 	if (nodoAtual != NULL) {
-		strcpy_s(nodoAtual->nomeGestor, nomeNovo);
+		strcpy(nodoAtual->nomeGestor, nomeNovo);
 	}
 
 	return(gestor);
@@ -197,13 +197,13 @@ Mobilidade* criaMobilidade(Mobilidade* mobilidade) {
 	Mobilidade* mobilidades = NULL;
 
 	printf("ID da Mobilidade: ");
-	scanf_s("%d", &idMobilidade);
+	scanf("%d", &idMobilidade);
 	printf("Tipo de Mobilidade: ");
-	scanf_s("%s", &tipo);
+	scanf("%s", &tipo);
 	printf("Nível da Bateria: ");
-	scanf_s("%.2f", &nivel_bateria);
+	scanf("%.2f", &nivel_bateria);
 	printf("A Mobilidade é alugada? ");
-	scanf_s("%d", &mobilidadeAlugada);
+	scanf("%d", &mobilidadeAlugada);
 
 	if (idMobilidade != NULL)
 	{
@@ -222,7 +222,7 @@ Mobilidade* removeMobilidade(Mobilidade* mobilidade) {
 	listarMobilidade(mobilidade);
 
 	printf("ID da mobilidade que pretende remover: ");
-	scanf_s("%d", &idMobilidade);
+	scanf("%d", &idMobilidade);
 
 	return removeMobilidade(mobilidade, idMobilidade);
 }
@@ -240,7 +240,7 @@ Mobilidade* alterarMobilidade(Mobilidade* mobilidade, char tipo[], int novoID) {
 
 	if (nodoAtual != NULL)
 	{
-		strcpy_s(nodoAtual->idMobilidade, novoID);
+		strcpy(nodoAtual->idMobilidade, novoID);
 	}
 
 	return(mobilidade);

@@ -1,10 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAXNOME 50
+
 #pragma once
+
 // Estrutura para representar um gestor
+
 typedef struct gestor
 {
-    int id; // Identificador único do gestor
-    char nome[50]; // Nome do gestor
-    char password[20]; // Senha de acesso do gestor
-    struct gestor* next; // Ponteiro para o próximo gestor na lista
+    // Identificador único do gestor
+    int idGestor; 
+    // Nome do gestor
+    char nomeGestor[MAXNOME];
+    // Senha de acesso do gestor
+    char password[MAXNOME]; 
+    // Ponteiro para o próximo gestor na lista
+    struct gestor* seguinte; 
 
-} gestor;
+} Gestor;
+
+//Declaração das funções para os gestores
+
+void listarGestores(Gestor* gestor);
+Gestor* inserirGestor(Gestor* gestor, int idGestor, char nomeGestor[], char password[]);

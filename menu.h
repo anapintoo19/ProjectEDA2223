@@ -6,31 +6,31 @@
 #pragma region Menus
 
 void mostrarMenu();
-void mostrarMobilidade();
-void mostrarGestor();
 void mostrarCliente();
+void mostrarGestor();
+void mostrarMobilidade();
 
 #pragma endregion
 
-//mobilidade_eletrica* mobility_list = NULL;
+//mobilidadeEletrica* mobility_list = NULL;
 //cliente* customer_list = NULL;
 //gestor* manager_list = NULL;
 
-#pragma region Cliente
+#pragma region CLIENTE
 
 
 
 #pragma endregion
 
 
-#pragma region Mobiblidade
+#pragma region GESTOR
 
 
 
 #pragma endregion
 
 
-#pragma region Gestor
+#pragma region MOBILIDADE
 
 
 

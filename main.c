@@ -117,6 +117,11 @@ int main() {
 	int option;
 	int subOption;
 
+	// Definição de Locale como LC_ALL para UTF-8 
+	// Permite assim caracteres especiais na Consola de Debug
+	char* locale;
+	locale = setlocale(LC_ALL, "");
+
 	// Inserção de Máquinas Predefinidas
 	//Maquina* maq = NULL;
 
@@ -153,7 +158,7 @@ int main() {
 	do
 	{
 		mostrarMenu();
-		scanf("%d", &option);
+		scanf_s("%d", &option);
 		system("cls");
 
 		switch (option)
@@ -165,7 +170,7 @@ int main() {
 			{
 				mostrarCliente();
 
-				scanf("%d", &subOption);
+				scanf_s("%d", &subOption);
 				system("cls");
 
 				switch (subOption)
@@ -211,7 +216,7 @@ int main() {
 			{
 				mostrarGestor();
 
-				scanf("%d", &subOption);
+				scanf_s("%d", &subOption);
 				system("cls");
 
 				switch (subOption)
@@ -254,9 +259,9 @@ int main() {
 		case 3:
 			do
 			{
-				mostraMobilidadeMenu();
+				mostrarMobilidade();
 
-				scanf("%d", &subOption);
+				scanf_s("%d", &subOption);
 				system("cls");
 
 				switch (subOption)

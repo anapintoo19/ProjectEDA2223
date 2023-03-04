@@ -4,7 +4,7 @@
 #include "gestor.h"
 #include "cliente.h"
 
-#pragma region Menus
+#pragma region MENUS
 
 void mostrarMenu();
 void mostrarCliente();

@@ -16,3 +16,9 @@ typedef struct mobilidade
     struct mobilidade* seguinte; 
 
 } Mobilidade;
+
+
+//Declaração das funções para as mobilidades
+
+void listarMobilidade(Mobilidade* mobilidade);
+Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tipo[], float nível_bateria, int mobilidadeAlugada);

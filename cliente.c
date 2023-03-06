@@ -23,10 +23,10 @@ Cliente* inserirCliente(Cliente* cliente, int idCliente, char nomeCliente[], cha
 
 	if (novo != NULL) {
 		novo->idCliente = idCliente;
-		novo->nifCliente = nifCliente;
 		strcpy(novo->nomeCliente, nomeCliente);
-		novo->saldo = saldo;
 		strcpy(novo->moradaCliente, moradaCliente);
+		novo->nifCliente = nifCliente;
+		novo->saldo = saldo;
 		novo->seguinte = cliente;
 		return(novo);
 	}

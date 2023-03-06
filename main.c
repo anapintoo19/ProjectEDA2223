@@ -5,52 +5,58 @@
 #include <conio.h>
 #include "menu.h"
 
-// mobilidadeEletrica *lista_mobilidade = NULL;
-// cliente *lista_cliente = NULL;
-// gestor *lista_gestor = NULL;
-
-// int main(){
-
-//     cliente *new_cliente = (cliente *) malloc(sizeof(cliente));
-//     new_cliente->id = 1;
-//     strcpy(new_cliente->nome, "Ana");
-//     new_cliente->saldo = 100.00;
-//     new_cliente->mobilidade_alugada = NULL;
-//     new_cliente->next = lista_cliente; // Inserir no início da lista
-//     lista_cliente = new_cliente; // Atualizar o início da lista
-
-//     cliente *new_cliente = (cliente *) malloc(sizeof(cliente));
-//     new_cliente->id = 2;
-//     strcpy(new_cliente->nome, "Ana");
-//     new_cliente->saldo = 100.00;
-//     new_cliente->mobilidade_alugada = NULL;
-//     new_cliente->next = lista_cliente; // Inserir no início da lista
-//     lista_cliente = new_cliente; // Atualizar o início da lista
-
-//     // Criar um novo gestor
-//     gestor *new_gestor = (gestor *) malloc(sizeof(gestor));
-//     new_gestor->id = 1;
-//     strcpy(new_gestor->nome, "Ana");
-//     strcpy(new_gestor->password, "1234");
-//     new_gestor->next = lista_gestor;
-//     lista_gestor = new_gestor;
-
-//     // Criar um novo meio de mobilidade elétrica
-//     mobilidadeEletrica *new_mobilidade = (mobilidadeEletrica *) malloc(sizeof(mobilidadeEletrica));
-//     new_mobilidade->id = 1;
-//     strcpy(new_mobilidade->tipo, "bicicleta elétrica");
-//     new_mobilidade->nivel_bateria = 100.0;
-//     new_mobilidade->alugada = 0;
-//     new_mobilidade->next = lista_mobilidade;
-//     lista_mobilidade = new_mobilidade;
-
-
-// }
-
 #define MAXNOME 40
 
 // Cria e Guarda Dados num File
-// Funções para AutoIncrementar os ID's por uma File
+// Guardar Dados dos Clientes
+int guardarClientes(Cliente* cliente)
+{
+	FILE* fp;
+	fp = fopen("cliente.txt", "w");
+	if (fp != NULL)
+	{
+		Cliente* aux = cliente;
+		while (aux != NULL)
+		{
+			fprintf(fp, "%d;%s;%s;%d;%.2f\n", aux->idCliente, aux->nomeCliente,
+				aux->moradaCliente, aux->nifCliente, aux->saldo);
+			aux = aux->seguinte;
+		}
+		fclose(fp);
+		return(1);
+	}
+	else return(0);
+}
+
+Cliente* lerClientes()
+{
+	FILE* fp;
+	int idCliente;
+	char nomeCliente, moradaCliente;
+	int nifCliente;
+	float saldo;
+	Cliente* aux = NULL;
+	fp = fopen("clientes.txt", "r");
+	if (fp != NULL)
+	{
+		while (!feof(fp))
+		{
+			fscanf(fp, "%d;%s;%s;%d;%.2f\n", &idCliente, &nomeCliente, &moradaCliente, &nifCliente, &saldo);
+			aux = inserirCliente(aux, idCliente, nomeCliente, moradaCliente, nifCliente, saldo);
+		}
+		fclose(fp);
+	}
+	return(aux);
+}
+
+//Guardar Dados dos Gestores
+
+
+
+
+
+
+
 // int autoIdJob() {
 // 	int idJob;
 // 	FILE* idFile = fopen("idJob.txt", "r");

@@ -12,7 +12,7 @@
 int guardarClientes(Cliente* cliente)
 {
 	FILE* fp;
-	fp = fopen("cliente.txt", "w");
+	fp = fopen("clientes.txt", "w");
 	if (fp != NULL)
 	{
 		Cliente* aux = cliente;
@@ -51,73 +51,6 @@ Cliente* lerClientes()
 
 //Guardar Dados dos Gestores
 
-
-
-
-
-
-
-// int autoIdJob() {
-// 	int idJob;
-// 	FILE* idFile = fopen("idJob.txt", "r");
-// 	if (!idFile) {
-// 		idFile = fopen("idJob.txt", "w");
-// 		if (!idFile) return -1; // Erro
-// 		fprintf(idFile, "%d", 1);
-// 		fclose(idFile);
-// 		return 1;
-// 	}
-// 	fscanf(idFile, "%d", &idJob); // Lê o ID e Incrementa 1 Valor
-// 	idJob++;
-
-// 	fclose(idFile); // Fecha a File
-// 	idFile = fopen("idJob.txt", "w"); // Reabre a File
-// 	fprintf(idFile, "%d", idJob);
-// 	fclose(idFile);
-// 	return idJob;
-// }
-
-// int autoIdOp() {
-// 	int idOp;
-// 	FILE* idFile = fopen("idOp.txt", "r");
-// 	if (!idFile) {
-// 		idFile = fopen("idOp.txt", "w");
-// 		if (!idFile) return -1; // Erro
-// 		fprintf(idFile, "%d", 1);
-// 		fclose(idFile);
-// 		return 1;
-// 	}
-// 	fscanf(idFile, "%d", &idOp); // Lê o ID e Incrementa 1 Valor
-// 	idOp++;
-
-// 	fclose(idFile); // Fecha a File
-// 	idFile = fopen("idOp.txt", "w"); // Reabre a File
-// 	fprintf(idFile, "%d", idOp);
-// 	fclose(idFile);
-// 	return idOp;
-// }
-
-// int autoIdMaq() {
-// 	int idMaq;
-// 	FILE* idFile = fopen("idMaq.txt", "r");
-// 	if (!idFile) {
-// 		idFile = fopen("idMaq.txt", "w");
-// 		if (!idFile) return -1; // Erro
-// 		fprintf(idFile, "%d", 1);
-// 		fclose(idFile);
-// 		return 1;
-// 	}
-// 	fscanf(idFile, "%d", &idMaq); // Lê o ID e Incrementa 1 Valor
-// 	idMaq++;
-
-// 	fclose(idFile); // Fecha a File
-// 	idFile = fopen("idMaq.txt", "w"); // Reabre a File
-// 	fprintf(idFile, "%d", idMaq);
-// 	fclose(idFile);
-// 	return idMaq;
-// }
-
-
 int main() {
 
 	// Variáveis para Escolha da Opção dos Menus e SubMenus
@@ -146,9 +79,9 @@ int main() {
 	// Inserção de Mobilidade Predefinidas
 	Mobilidade* mo = NULL;
 
-	mo = inserirMobilidade(mo, 1, "Bicicleta Elétrica", 50.5, 1);
-	mo = inserirMobilidade(mo, 2, "Trotinete Elétrica", 80.0, 5);
-	mo = inserirMobilidade(mo, 2, "Skate Elétrica", 20.7, 10);
+	mo = inserirMobilidade(mo, 1, "Bicicleta Elétrica", 50.5, 60.00, 1);
+	mo = inserirMobilidade(mo, 2, "Trotinete Elétrica", 80.0, 100.00, 5);
+	mo = inserirMobilidade(mo, 2, "Skate Elétrica", 20.7, 40.00, 10);
 
 	do
 	{
@@ -296,6 +229,7 @@ int main() {
 			break;
 
 		case 0:
+			guardarClientes(cli);
 			system("exit");
 			break;
 

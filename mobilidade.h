@@ -10,6 +10,8 @@ typedef struct mobilidade
     char tipo[20]; 
     // Nível atual da bateria (em porcentagem)
     float nivel_bateria;
+    // Autonomia
+    float autonomia;
     // Indica se o meio de mobilidade está alugado (1) ou não (0)
     int mobilidadeAlugada; 
     // Ponteiro para o próximo meio de mobilidade na lista
@@ -21,4 +23,4 @@ typedef struct mobilidade
 //Declaração das funções para as mobilidades
 
 void listarMobilidade(Mobilidade* mobilidade);
-Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tipo[], float nível_bateria, int mobilidadeAlugada);
+Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tipo[], float nível_bateria, float autonomia, int mobilidadeAlugada);

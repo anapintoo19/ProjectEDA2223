@@ -85,10 +85,10 @@ Cliente* criaCliente(Cliente* cliente) {
 	printf("Saldo: \n");
 	scanf("%.2f", &saldo);
 
-	if (idCliente != NULL) {
+	/*if (idCliente != NULL) {
 		printf("\n\Já exite um cliente com o id '%d'\n", idCliente);
 		return cliente;
-	}
+	}*/
 
 	return inserirCliente(cliente, idCliente, nomeCliente,  moradaCliente, nifCliente, saldo);
 
@@ -193,6 +193,7 @@ Mobilidade* criaMobilidade(Mobilidade* mobilidade) {
 	int idMobilidade;
 	char tipo[20];
 	float nivel_bateria;
+	float autonomia;
 	int mobilidadeAlugada;
 	Mobilidade* mobilidades = NULL;
 
@@ -202,6 +203,8 @@ Mobilidade* criaMobilidade(Mobilidade* mobilidade) {
 	scanf("%s", &tipo);
 	printf("Nível da Bateria: ");
 	scanf("%.2f", &nivel_bateria);
+	printf("Autonomia: ");
+	scanf("%.2f", &autonomia);
 	printf("A Mobilidade é alugada? ");
 	scanf("%d", &mobilidadeAlugada);
 
@@ -211,7 +214,7 @@ Mobilidade* criaMobilidade(Mobilidade* mobilidade) {
 		return(mobilidade);
 	}
 
-	return inserirMobilidade(mobilidade, idMobilidade, tipo, nivel_bateria);
+	return inserirMobilidade(mobilidade, idMobilidade, tipo, nivel_bateria, autonomia, mobilidadeAlugada);
 }
 
 // Função para remover uma mobilidade

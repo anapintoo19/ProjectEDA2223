@@ -11,14 +11,14 @@ void listarMobilidade(Mobilidade* mobilidade) {
 
 	while (mobilidade != NULL)
 	{
-		printf("ID: %d    Tipo de Mobilidade: %s    Nível de Bateria: %.2f     Mobilidade Alugada? %d", mobilidade->idMobilidade, mobilidade->tipo, mobilidade->nivel_bateria, mobilidade->mobilidadeAlugada);
+		printf("ID: %d    Tipo de Mobilidade: %s    Nível de Bateria: %.2f   Autonomia:%.2f  Mobilidade Alugada? %d", mobilidade->idMobilidade, mobilidade->tipo, mobilidade->nivel_bateria, mobilidade->autonomia, mobilidade->mobilidadeAlugada);
 	}
 	printf("\n****************************************************************************\n");
 }
 
 // Função para criar um novo registo de uma nova Mobilidade
 
-Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tipo[], float nivel_bateria, int mobilidadeAlugada) {
+Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tipo[], float nivel_bateria, float autonomia, int mobilidadeAlugada) {
 	Mobilidade* novo = (Mobilidade*)malloc(sizeof(Mobilidade));
 
 	if (novo != NULL)
@@ -26,6 +26,7 @@ Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tip
 		novo->idMobilidade = idMobilidade;
 		strcpy(novo->tipo, tipo);
 		novo->nivel_bateria = nivel_bateria;
+		novo->autonomia = autonomia;
 		novo->mobilidadeAlugada = mobilidadeAlugada;
 		novo->seguinte = mobilidade;
 		return(novo);

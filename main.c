@@ -72,7 +72,7 @@ int main() {
 
 	ges = inserirGestor(ges, 1, "Joaquim Pereira", "jqmPereira");
 	ges = inserirGestor(ges, 2, "Adelina Pinto", "adelPinto");
-	ges = inserirGestor(ges, 3, "Tatiana Almeida", "tatiAlmeida");
+	ges = inserirGestor(ges, 3, "Ana Almeida", "anaAlmeida");
 
 	// Inserção de Mobilidade Predefinidas
 	Mobilidade* mo = NULL;

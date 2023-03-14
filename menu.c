@@ -66,7 +66,7 @@ void mostrarMobilidade() {
 
 // Função para inserir um cliente
 
-Cliente* criaCliente(Cliente* cliente) {
+	Cliente* criaCliente(Cliente* cliente) {
 	int idCliente;
 	char nomeCliente[MAXNAME];
 	char moradaCliente[MAXNAME];
@@ -78,19 +78,19 @@ Cliente* criaCliente(Cliente* cliente) {
 	scanf("%d", &idCliente);
 	printf("Nome do cliente: \n");
 	scanf("%s", &nomeCliente);
-	printf("Morada:\n ");
+	printf("Morada: \n");
 	scanf("%s", &moradaCliente);
 	printf("NIF: \n");
 	scanf("%d", &nifCliente);
 	printf("Saldo: \n");
-	scanf("%.2f", &saldo);
+	scanf("%f", &saldo);
 
 	/*if (idCliente != NULL) {
 		printf("\n\Já exite um cliente com o id '%d'\n", idCliente);
 		return cliente;
 	}*/
 
-	return inserirCliente(cliente, idCliente, nomeCliente,  moradaCliente, nifCliente, saldo);
+	return inserirCliente(cliente, idCliente, nomeCliente, moradaCliente, nifCliente, saldo);
 
 }
 
@@ -129,6 +129,23 @@ Cliente* alterarCliente(Cliente* cliente, int nifCliente, char nomeNovo[]) {
 
 // Função para inserir um gestor
 
+int checkGestorId(Gestor* gh, int idGestor) {
+
+	Gestor* aux = gh;
+
+	while (aux != NULL) {
+
+
+		if (idGestor == aux->idGestor) {
+			return 1;
+		}
+		aux = aux->seguinte;
+	}
+
+	return 0;
+}
+
+
 Gestor* criaGestor(Gestor* gestor) {
 	int idGestor;
 	char nomeGestor[MAXNAME];
@@ -142,10 +159,17 @@ Gestor* criaGestor(Gestor* gestor) {
 	printf("Insira a password: ");
 	scanf("%s", &password);
 
-	if (idGestor != NULL) {
-		printf("\n\Já existe um gestor com o nome '%s'\n", nomeGestor);
-		return(gestor);
+	
+
+	if (checkGestorId(gestor, idGestor)) {
+
+		printf("	nO gestor id %d já existe", idGestor);
+		return gestor;
 	}
+
+
+
+
 
 	return inserirGestor(gestor, idGestor, nomeGestor, password);
 

@@ -25,6 +25,7 @@ Gestor* inserirGestor(Gestor* gestor, int idGestor, char nomeGestor[], char pass
 		strcpy(novo->nomeGestor, nomeGestor);
 		strcpy(novo->password, password);
 		novo->seguinte = gestor;
+
 		return(novo);
 	}
 	else {

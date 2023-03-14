@@ -18,6 +18,7 @@ int guardarClientes(Cliente* cliente)
 		Cliente* aux = cliente;
 		while (aux != NULL)
 		{
+			printf("teste");
 			fprintf(fp, "%d;%s;%s;%d;%.2f\n", aux->idCliente, aux->nomeCliente,
 				aux->moradaCliente, aux->nifCliente, aux->saldo);
 			aux = aux->seguinte;
@@ -65,9 +66,6 @@ int main() {
 	// Inserção de Clientes Predefinidos
 	Cliente* cli = NULL;
 
-	cli = inserirCliente(cli, 1, "Maria Paula", "Rua das Agras", 254897451, 5.00);
-	cli = inserirCliente(cli, 2, "Hélder João", "Rua das Andorinhas", 258789104, 1.50);
-	cli = inserirCliente(cli, 3, "Joaquina", "Rua Alberto Pais", 256986321, 2.30);
 
 	// Inserção de Gestores Predefinidos
 	Gestor* ges = NULL;

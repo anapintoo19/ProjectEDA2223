@@ -18,18 +18,22 @@ void listarGestores(Gestor* gestor)
 
 // Função para Criar um Novo Registo de um novo gestor (inserção de um novo gestor)
 Gestor* inserirGestor(Gestor* gestor, int idGestor, char nomeGestor[], char password[]) {
-	Gestor* novo = (Gestor*)malloc(sizeof(Gestor));
 
-	if (novo != NULL) {
-		novo->idGestor = idGestor;
-		strcpy(novo->nomeGestor, nomeGestor);
-		strcpy(novo->password, password);
-		novo->seguinte = gestor;
+	if (!existeGestor(gestor, idGestor))
+	{
+		Gestor* novo = (Gestor*)malloc(sizeof(Gestor));
 
-		return(novo);
-	}
-	else {
-		return(gestor);
+		if (novo != NULL) {
+			novo->idGestor = idGestor;
+			strcpy(novo->nomeGestor, nomeGestor);
+			strcpy(novo->password, password);
+			novo->seguinte = gestor;
+
+			return(novo);
+		}
+		else {
+			return(gestor);
+		}
 	}
 }
 

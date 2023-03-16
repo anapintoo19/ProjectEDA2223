@@ -29,6 +29,8 @@ void mostrarCliente() {
 	printf("* 2. Inserir Novo Cliente         *\n");
 	printf("* 3. Remover Cliente              *\n");
 	printf("* 4. Alterar Cliente              *\n");
+	printf("* 5. Associar Mobilidade          *\n");
+	printf("* 5. Desassociar Mobilidade       *\n");
 	printf("* 0. Sair                         *\n");
 	printf("***********************************\n");
 	printf("Opcao: ");

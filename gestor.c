@@ -90,3 +90,25 @@ Gestor* removerGestor(Gestor* gestor, int idGestor) {
 		}
 	}
 }
+
+// Função para alterar um registo de um gestor pelo seu ID
+
+Gestor* alterarGestor(Gestor* gestor, int idGestor, char nomeGestorNovo[], char passwordNova[]) {
+
+	Gestor* nodoAtual = gestor;
+	Gestor* nodoAnterior;
+
+	while (nodoAtual != NULL && nodoAtual->idGestor != idGestor)
+	{
+		nodoAnterior = nodoAtual;
+		nodoAtual = nodoAtual->seguinte;
+	}
+
+	if (nodoAtual != NULL)
+	{
+		strcpy(nodoAtual->nomeGestor, nomeGestorNovo);
+		strcpy(nodoAtual->~´, passwordNova);
+	}
+
+	return(gestor);
+}

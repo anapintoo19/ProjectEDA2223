@@ -3,8 +3,8 @@
 #include "cliente.h"
 
 
-// Função para Listar todas os clientes
-void listarClientes(Cliente* cliente)
+// Função para Listar todos os clientes e mobilidades elétricas que estejam associadas
+void listarClientes(Cliente* cliente, Mobilidade* mobilidade)
 {
 	printf("****************************************************************************\n");
 	printf("*                             LISTA DE CLIENTE                             *\n");
@@ -12,45 +12,65 @@ void listarClientes(Cliente* cliente)
 
 	while (cliente != NULL) {
 		
-		printf("tetetete");
+		printf("ID cliente: %d   Nome: %s   Morada: %s   NIF: %d   Saldo: %.2f\n", cliente->idCliente, cliente->nomeCliente, cliente->moradaCliente, cliente->nifCliente, cliente->saldo);
 
-		cliente->seguinte;
-	}
-
-
-//	while (aux != NULL)
-//	{
+		ClienteMobilidade* climobAux = cliente->mobilidadeAlugada
 		
-
-		/*Cliente* cliMob = cliente->mobilidadeAlugada;
-
-		*/
-	/*	if (cliMob == NULL)
-		{
-			printf("\tNao tem Mobiliddes Associadas\n\n");
-		}
-		else
-		{
-			while (cliMobAux != NULL)
+			if (climobAux == NULL)
 			{
-				Mobilidade* mobAux = mobilidade;
-
-				while (mobAux != NULL && mobAux->id != cliMobAux->idMob)
-				{
-					mobAux = mobAux->next;
-				}
-				if (mobAux != NULL)
-				{
-					printf("\tID: %d   Tipo Mobilidade: %s     Bateria: %.2f     Autonomia: %.2f\n\n", mobAux->id, mobAux->tipo, mobAux->nivel_bateria, mobAux->autonomia);
-				}
-				cliMobAux = cliMobAux->next;
+				printf("\tnão existe Mobilidades Associadas\n\n");
 			}
-		}*/
-		//printf("%s ", cliente->nomeCliente);
-//		aux = aux->seguinte;
-	//}
+			else
+			{
+				while (climobAux != NULL)
+				{
+					Mobilidade* mobAux = mobilidadeAlugada;
+
+					while (mobAux != NULL && mobAux->idMobilidade != climobAux->id)
+					{
+						mobAux = mobAux->seguinte;
+					}
+					if (mobAux != NULL)
+					{
+						printf("\tID: %d   Tipo de Mobilidade: %s   Bateria: %.2f   Autonomia: %.2f\n", mobAux->idMobilidade, mobAux->tipo, mobAux->nivel_bateria, mobAux->autonomia);
+					}
+					climobAux = climobAux->seguinte;
+				}
+			}
+			
+		cliente = climobAux->seguinte;
+		
+	}
+	printf("****************************************************************************\n\n");
+
+
+}
 	printf("\n****************************************************************************\n");
 }
+
+// Função para listar somente os clientes
+
+void listarsomenteClientes(Cliente* cliente) {
+
+	printf("****************************************************************************\n");
+	printf("*                             LISTA DE CLIENTE                             *\n");
+	printf("****************************************************************************\n\n");
+
+	while (cliente != NULL)
+	{
+		printf("ID cliente: %d   Nome: %s   Morada: %s   NIF: %d   Saldo: %.2f\n", cliente->idCliente, cliente->nomeCliente, cliente->moradaCliente, cliente->nifCliente, cliente->saldo);
+	}
+
+	printf("****************************************************************************\n\n");
+
+}
+
+
+
+
+
+
+
 
 // Função para Criar um Novo Registo de um novo cliente (inserção de um novo cliente)
 Cliente* inserirCliente(Cliente* cliente, int idCliente, char nomeCliente[], char moradaCliente[], int nifCliente, float saldo) {

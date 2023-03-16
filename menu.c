@@ -67,34 +67,49 @@ void mostrarMobilidade() {
 
 #pragma region CLIENTE
 
-// Função para inserir um cliente
+// Função para criar um cliente
 
-	Cliente* criaCliente(Cliente* cliente) {
+Cliente* criaCliente(Cliente* cliente) {
+
 	int idCliente;
 	char nomeCliente[MAXNAME];
 	char moradaCliente[MAXNAME];
 	int nifCliente;
 	float saldo;
-	Cliente* clientes = NULL;
+	
+	Mobilidade* mobilidadeAlugada = NULL;
 
-	printf("ID do cliente: \n");
-	scanf("%d", &idCliente);
-	printf("Nome do cliente: \n");
-	scanf("%s", &nomeCliente);
-	printf("Morada: \n");
-	scanf("%s", &moradaCliente);
-	printf("NIF: \n");
-	scanf("%d", &nifCliente);
-	printf("Saldo: \n");
-	scanf("%f", &saldo);
+	Cliente* opAux = cliente;
 
-	/*if (idCliente != NULL) {
-		printf("\n\Já exite um cliente com o id '%d'\n", idCliente);
-		return cliente;
-	}*/
+	while (idCliente))
+	{
+		opAux = opAux->seguinte;
+	}
+
+	if (opAux != NULL)
+	{
+		printf("\nJá existe um cliente com o ID '%d'\n", idCliente);
+	}
+	else
+	{
+		printf("ID do cliente: \n");
+		scanf("%d", &idCliente);
+
+		printf("Nome do cliente: \n");
+		scanf("%s", &nomeCliente);
+
+		printf("Morada: \n");
+		scanf("%s", &moradaCliente);
+
+		printf("NIF: \n");
+		scanf("%d", &nifCliente);
+
+		printf("Saldo: \n");
+		scanf("%f", &saldo);
+
+	}
 
 	return inserirCliente(cliente, idCliente, nomeCliente, moradaCliente, nifCliente, saldo);
-
 }
 
 // Função remover cliente

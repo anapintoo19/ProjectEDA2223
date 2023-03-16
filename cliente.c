@@ -66,27 +66,79 @@ void listarsomenteClientes(Cliente* cliente) {
 }
 
 
-
-
-
-
-
-
 // Função para Criar um Novo Registo de um novo cliente (inserção de um novo cliente)
-Cliente* inserirCliente(Cliente* cliente, int idCliente, char nomeCliente[], char moradaCliente[], int nifCliente, float saldo) {
-	Cliente* novo = (Cliente*)malloc(sizeof(Cliente));
 
-	if (novo != NULL) {
-		novo->idCliente = idCliente;
-		strcpy(novo->nomeCliente, nomeCliente);
-		strcpy(novo->moradaCliente, moradaCliente);
-		novo->nifCliente = nifCliente;
-		novo->saldo = saldo;
-		novo->mobilidadeAlugada = NULL;
-		novo->seguinte = cliente;
-		return(novo);
+Cliente* inserirCliente(Cliente* cliente, int idCliente, char nomeCliente[], char moradaCliente[], int nifCliente, float saldo) {
+
+	if (!existeCliente(cliente, nifCliente))
+	{
+		Cliente* novo = (Cliente*)malloc(sizeof(Cliente));
+		if (novo != NULL) 
+		{
+			novo->idCliente = idCliente;
+			strcpy(novo->nomeCliente, nomeCliente);
+			strcpy(novo->moradaCliente, moradaCliente);
+			novo->nifCliente = nifCliente;
+			novo->saldo = saldo;
+			novo->mobilidadeAlugada = NULL;
+			novo->seguinte = cliente;
+			return(novo);
+		}
+		else {
+			return(cliente);
+		}
 	}
-	else {
-		return(cliente);
+	
+}
+
+// Função para Verificar se um registo de um cliente já existe pelo NIF
+
+int existeCliente(Cliente* cliente, int nifCliente) {
+
+	while (cliente != NULL)
+	{
+		if (cliente->nifCliente == nifCliente)
+		{
+			return(1);
+		}
+		cliente = cliente->seguinte;
+	}
+	return(0);
+}
+
+// Função para remover um registo de cliente pelo seu NIF
+Cliente* removerCliente(Cliente* cliente, int nifCliente) {
+
+	Cliente* anterior = cliente, * atual = cliente, * aux;
+
+	if (atual == NULL)
+	{
+		return NULL;
+	}
+	else
+	{
+		if (atual->nifCliente == nifCliente)
+		{
+			aux = atual->seguinte;
+			free(atual);
+		}
+		else
+		{
+			while ((atual != NULL) && (atual->nifCliente != nifCliente))
+			{
+				anterior = atual;
+				atual = atual->seguinte;
+			}
+			if (atual == NULL)
+			{
+				return(cliente);
+			}
+			else
+			{
+				anterior->seguinte = atual->seguinte;
+				free(atual);
+				return(cliente);
+			}
+		}
 	}
 }

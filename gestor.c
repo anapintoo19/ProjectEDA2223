@@ -51,3 +51,42 @@ int existeGestor(Gestor* gestor, int idGestor) {
 		return(0);
 	}
 }
+
+// Função para remover um registo de um gestor pelo seu ID
+
+Gestor* removerGestor(Gestor* gestor, int idGestor) {
+
+	Gestor* anterior = gestor, * atual = gestor, * aux;
+
+	if (atual == NULL)
+	{
+		return NULL;
+	}
+	else
+	{
+		if (atual->idGestor == idGestor)
+		{
+			aux = atual->seguinte;
+			free(atual);
+		}
+		else
+		{
+			while ((atual != NULL) && (atual->idGestor != idGestor))
+			{
+				anterior = atual;
+				atual = atual->seguinte~;
+			}
+
+			if (atual == NULL)
+			{
+				return(gestor);
+			}
+			else
+			{
+				anterior->seguinte = atual->seguinte;
+				free(atual);
+				return(gestor);
+			}
+		}
+	}
+}

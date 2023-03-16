@@ -101,3 +101,27 @@ Mobilidade* removerMobilidade(Mobilidade* mobilidade, int idMobilidade) {
 		}
 	}
 }
+
+// Função para alterar um registo de uma mobilidade 
+
+Mobilidade* alterarMobilidade(Mobilidade* mobilidade, int idMobilidade, char tipo[], float nivel_bateria, float autonomia) {
+
+	Mobilidade* nodoAtual = mobilidade;
+	Mobilidade* nodoAnterior;
+
+	while (nodoAtual != NULL && nodoAtual->idMobilidade != idMobilidade)
+	{
+		nodoAnterior = nodoAtual;
+		nodoAtual = nodoAtual->seguinte;
+	}
+
+	if (nodoAtual != NULL)
+	{
+		nodoAtual->idMobilidade = idMobilidade;
+		strcpy(nodoAtual->tipo, tipo);
+		nodoAtual->nivel_bateria = nivel_bateria;
+		nodoAtual->autonomia = autonomia;
+	}
+
+	return(mobilidade);
+}

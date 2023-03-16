@@ -168,7 +168,7 @@ Cliente* alterarCliente(Cliente* cliente, int idCliente, char nomeCliente[], cha
 	return(cliente);
 }
 
-// Função para addociar uma mobilidade a um cliente
+// Função para associar uma mobilidade a um cliente
 
 Cliente* associarMobilidade(Cliente* cliente, int idCliente, int idMob) { 
 
@@ -194,3 +194,8 @@ Cliente* associarMobilidade(Cliente* cliente, int idCliente, int idMob) {
 	return cliente;
 }
 
+// Função para desassociar uma mobilidade a um cliente
+
+Cliente* desassociarMobilidade(Cliente* cliente, int idCliente, int idMob) {
+
+}

@@ -23,4 +23,7 @@ typedef struct mobilidade
 //Declaração das funções para as mobilidades
 
 void listarMobilidade(Mobilidade* mobilidade);
-Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tipo[], float nível_bateria, float autonomia, int mobilidadeAlugada);
+int existeMobilidade(Mobilidade* mobilidade, int idMobilidade);
+Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tipo[], float nível_bateria, float autonomia);
+Mobilidade* removerMobilidade(Mobilidade* mobilidade, int idMobilidade);
+Mobilidade* alterarMobilidade(Mobilidade* mobilidade, int idMobilidade, char tipo[], float nivel_bateria, float autonomia);

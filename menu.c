@@ -57,6 +57,7 @@ void mostrarMobilidade() {
 	printf("* 2. Inserir Nova Mobilidade      *\n");
 	printf("* 3. Remover Mobilidade           *\n");
 	printf("* 4. Alterar Mobilidade           *\n");
+	printf("* 5. Listar Mobilidade Ordem DESC *\n");
 	printf("* 0. Sair                         *\n");
 	printf("***********************************\n");
 	printf("Opcao: ");

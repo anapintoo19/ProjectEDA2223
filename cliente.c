@@ -167,3 +167,29 @@ Cliente* alterarCliente(Cliente* cliente, int idCliente, char nomeCliente[], cha
 
 	return(cliente);
 }
+
+// Função para addociar uma mobilidade a um cliente
+
+Cliente* associarMobilidade(Cliente* cliente, int idCliente, int idMob) { 
+
+	Cliente* nodoAtual = cliente;
+	Cliente* nodoAnterior;
+
+	while (nodoAtual != NULL && nodoAtual-> nifCliente != idCliente)
+	{
+		nodoAnterior = nodoAtual;
+		nodoAtual = nodoAtual->seguinte;
+	}
+
+	if (nodoAtual != NULL)
+	{
+		ClienteMobilidade* nova = malloc(sizeof(struct clientemobilidade));
+		nova->nifCliente = idCliente;
+		nova->id = idMob;
+		nova->seguinte = nodoAtual->mobilidadeAlugada;
+
+		nodoAtual->mobilidadeAlugada = nova;
+	}
+
+	return cliente;
+}

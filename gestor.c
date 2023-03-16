@@ -32,3 +32,18 @@ Gestor* inserirGestor(Gestor* gestor, int idGestor, char nomeGestor[], char pass
 		return(gestor);
 	}
 }
+
+// Função para verificar se um registo de um gestor já existe pelo ID
+
+int existeGestor(Gestor* gestor, int idGestor) {
+
+	while (gestor != NULL)
+	{
+		if (gestor->idGestor == idGestor)
+		{
+			return(1);
+			gestor = gestor->seguinte;
+		}
+		return(0);
+	}
+}

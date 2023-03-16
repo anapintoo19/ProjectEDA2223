@@ -19,12 +19,23 @@ typedef struct cliente
     int nifCliente;
     // Saldo disponível do cliente
     float saldo; 
-    // Ponteiro para o meio de mobilidade elétrica alugado pelo cliente (ou NULL se não estiver alugado nenhum)
-    struct Mobilidade* mobilidadeAlugada; 
+    // Ponteiro para a estrutura do meio de mobilidade elétrica alugado pelo cliente que pode ser usada para armazenar informações cobre a mobilidade do cliente
+    struct ClienteMobilidade* mobilidadeAlugada; 
     // Ponteiro para o próximo cliente na lista
     struct cliente* seguinte;
 
 } Cliente;
+
+typedef struct clientemobilidade {
+
+    // Nif do cliente
+    int nifCliente;
+    // ID da Mobilidade
+    int id;
+    // Apontador para o proximo clientemobilidade da lista
+    struct clientemobilidade* seguinte;
+
+}ClienteMobilidade;
 
 //Declaração das funções para os clientes
 

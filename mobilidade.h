@@ -14,8 +14,7 @@ typedef struct mobilidade
     float autonomia;
     // Apontador para o próximo meio de mobilidade na lista
     struct mobilidade* seguinte;
-    // Ponteiro para o próximo meio de mobilidade na lista
-    struct mobilidade* seguinte; 
+
 
 } Mobilidade;
 

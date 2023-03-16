@@ -26,6 +26,8 @@ typedef struct cliente
 
 } Cliente;
 
+// Estrutura para representar uma mobilidade e um cliente
+
 typedef struct clientemobilidade {
 
     // Nif do cliente
@@ -39,5 +41,11 @@ typedef struct clientemobilidade {
 
 //Declaração das funções para os clientes
 
-void listarClientes(Cliente* cliente);
+void listarClientes(Cliente* cliente, Mobilidade* mobilidade);
+void listarsomenteClientes(Cliente* cliente);
+int existeCliente(Cliente* cliente, int nifCliente);
 Cliente* inserirCliente(Cliente* cliente, int idCliente, char nomeCliente[], char moradaCliente[], int nifCliente, float saldo);
+Cliente* removerCliente(Cliente* cliente, int nifCliente);
+Cliente* alterarCliente(Cliente* cliente, int idCliente, char nomeCliente[], char moradaCliente[], int nifCliente, float saldo);
+Cliente* associarMobilidade(Cliente* cliente, int idCliente, int idMob);
+Cliente* desassociarMobilidade(Cliente* cliente, int idCliente, int idMob);

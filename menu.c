@@ -114,9 +114,10 @@ Cliente* criaCliente(Cliente* cliente) {
 
 // Função remover cliente
 Cliente* removeCliente(Cliente* cliente) {
-	int idCliente = 0;
 
-	listarClientes(cliente);
+	int idCliente;
+
+	listarsomenteClientes(cliente);
 
 	printf("ID do Cliente que pretende remover: ");
 	scanf("%d", &idCliente);

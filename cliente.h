@@ -31,7 +31,7 @@ typedef struct clientemobilidade {
     // Nif do cliente
     int nifCliente;
     // ID da Mobilidade
-    int id;
+    int ;
     // Apontador para o proximo clientemobilidade da lista
     struct clientemobilidade* seguinte;
 

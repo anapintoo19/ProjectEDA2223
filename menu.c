@@ -404,30 +404,38 @@ Gestor* editaGestor(Gestor* gestor) {
 
 Mobilidade* criaMobilidade(Mobilidade* mobilidade) {
 	int idMobilidade;
-	char tipo[20];
+	char tipo[100];
 	float nivel_bateria;
-	float autonomia;
-	int mobilidadeAlugada;
-	Mobilidade* mobilidades = NULL;
+	float autonomia; 
 
 	printf("ID da Mobilidade: ");
 	scanf("%d", &idMobilidade);
-	printf("Tipo de Mobilidade: ");
-	scanf("%s", &tipo);
-	printf("Nível da Bateria: ");
-	scanf("%.2f", &nivel_bateria);
-	printf("Autonomia: ");
-	scanf("%.2f", &autonomia);
-	printf("A Mobilidade é alugada? ");
-	scanf("%d", &mobilidadeAlugada);
 
-	if (idMobilidade != NULL)
+	Mobilidade* mobAux = mobilidade;
+
+	while (mobAux != NULL && (mobAux->idMobilidade != idMovilidad))
 	{
-		printf("\n\Já existe uma mobilidade com o ID '%d'\n", idMobilidade);
-		return(mobilidade);
+		mobAux = mobAux->seguinte;
 	}
 
-	return inserirMobilidade(mobilidade, idMobilidade, tipo, nivel_bateria, autonomia, mobilidadeAlugada);
+	if (mobAux != NULL)
+	{
+		printf("\nJá existe uma Mobilidade com o id '%d'\n", idMobilidade);
+		return mobilidade;
+	}
+	else
+	{
+		printf("Tipo de Mobilidade: ");
+		scanf("%s", &tipo);
+
+		printf("Nível da Bateria: ");
+		scanf("%.2f", &nivel_bateria);
+
+		printf("Autonomia: ");
+		scanf("%.2f", &autonomia);
+	}
+
+	return inserirMobilidade(mobilidade, idMobilidade, tipo, nivel_bateria, autonomia);
 }
 
 // Função para remover uma mobilidade

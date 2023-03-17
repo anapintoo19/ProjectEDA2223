@@ -57,6 +57,37 @@ void dadosExportados(Cliente* cliente, Gestor* gestor, Mobilidade* mobilidade) {
 	{
 		fprintf(exportaFile, "Sem Clientes a apresentar\n");
 	}
+
+	// Guardar dados dos gestores
+
+	Gestor* gesAux = gestor;
+
+	fprintf(exportaFile, "****************************************************************************\n");
+	fprintf(exportaFile, "*                      LISTA DE GESTORES                                   *\n");
+	fprintf(exportaFile, "****************************************************************************\n\n");
+
+	if (gestor != NULL)
+	{
+		while (gesAux != NULL)
+		{
+			fprintf(exportaFile, "ID: %d     Nome: %s     Password: %s\n", gesAux->idGestor, gesAux->nomeGestor, gesAux->password);
+
+			fprintf(exportaFile, "****************************************************************************\n\n");
+
+			gesAux = gesAux->seguinte;
+		}
+	}
+	else
+	{
+		fprintf(exportaFile, "Sem Gestores a apresentar\n");
+	}
+
+	fclose(exportaFile);
+
+	printf("****************************************************************************\n");
+	printf("*                  OS DADOS FORAM EXPORTADOS COM SUCESSO                   *\n");
+	printf("****************************************************************************\n");
+
 }
 
 

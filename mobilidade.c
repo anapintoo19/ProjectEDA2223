@@ -55,7 +55,7 @@ int existeMobilidade(Mobilidade* mobilidade, int idMobilidade) {
 			mobilidade = mobilidade->seguinte;
 		}
 	}
-	return(o);
+	return(0);
 }
 
 // Função para remover um registo de uma mobilidade pelo ID

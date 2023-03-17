@@ -82,7 +82,7 @@ Cliente* criaCliente(Cliente* cliente) {
 
 	Cliente* opAux = cliente;
 
-	while (idCliente))
+	while (idCliente)
 	{
 		opAux = opAux->seguinte;
 	}

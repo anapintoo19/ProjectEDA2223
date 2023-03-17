@@ -74,7 +74,7 @@ Gestor* removerGestor(Gestor* gestor, int idGestor) {
 			while ((atual != NULL) && (atual->idGestor != idGestor))
 			{
 				anterior = atual;
-				atual = atual->seguinte~;
+				atual = atual->seguinte;
 			}
 
 			if (atual == NULL)

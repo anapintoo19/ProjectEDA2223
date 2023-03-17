@@ -14,7 +14,7 @@ void listarClientes(Cliente* cliente, Mobilidade* mobilidade)
 		
 		printf("ID cliente: %d   Nome: %s   Morada: %s   NIF: %d   Saldo: %.2f\n", cliente->idCliente, cliente->nomeCliente, cliente->moradaCliente, cliente->nifCliente, cliente->saldo);
 
-		ClienteMobilidade* climobAux = cliente->mobilidadeAlugada
+		ClienteMobilidade* climobAux = cliente->mobilidadeAlugada;
 		
 			if (climobAux == NULL)
 			{
@@ -45,8 +45,7 @@ void listarClientes(Cliente* cliente, Mobilidade* mobilidade)
 
 
 }
-	printf("\n****************************************************************************\n");
-}
+
 
 // Função para listar somente os clientes
 

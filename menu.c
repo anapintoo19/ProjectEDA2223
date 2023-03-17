@@ -441,7 +441,7 @@ Mobilidade* criaMobilidade(Mobilidade* mobilidade) {
 // Função para remover uma mobilidade
 
 Mobilidade* removeMobilidade(Mobilidade* mobilidade) {
-	int idMobilidade = 0;
+	int idMobilidade;
 
 	listarMobilidade(mobilidade);
 

@@ -156,6 +156,68 @@ Cliente* editaCliente(Cliente* cliente) {
 	return alterarCliente(cliente, idCliente, newName, newHousehold, newNIF, newSaldo);
 }
 
+// Associar uma determinada mobilidade a um cliente
+
+Cliente* associaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
+	int idCliente = 0, idMobilidade = 0, found = 0;
+
+	do
+	{
+		listarClientes(cliente, mobilidade);
+
+		printf("ID do Cliente: ");
+		scanf("%d", &idCliente);
+
+		Cliente* cliAux = cliente;
+		
+		while (cliAux != NULL && cliAux->nifCliente != idCliente)
+		{
+			cliAux = cliAux->seguinte;
+		}
+
+		if (cliAux == NULL)
+		{
+			idCliente = 0;
+			system("cls");
+			printf("Escolha inválida\n");
+			system("pause");
+			system("cls");
+		}
+	} while (idCliente == 0);
+
+	system("cls");
+
+	do
+	{
+		printf("NIF do Cliente: %d\n", idCliente);
+
+		listarMobilidades(mobilidade);
+
+		printf("ID da Mobilidade Para Associar: ");
+		scanf("%d", &idMobilidade);
+
+		Mobilidade* mobAux = mobilidade;
+
+		while (mobAux != NULL && mobAux->id != idMobilidade)
+		{
+			mobAux = mobAux->seguinte;
+		}
+		if (mobAux == NULL)
+		{
+			idMobilidade = 0;
+			system("cls");
+			printf("Escolha invalida\n");
+			system("pause");
+			system("cls");
+		}
+	} while (idMobilidade == 0);
+}
+
+
+
+
+
+
 #pragma endregion
 
 #pragma region GESTOR

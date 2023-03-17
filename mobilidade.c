@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "mobilidade.h"
 
 // Função para listar as mobilidades

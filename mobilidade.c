@@ -47,21 +47,15 @@ Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tip
 
 int existeMobilidade(Mobilidade* mobilidade, int idMobilidade) {
 
-	Mobilidade* novo = (Mobilidade*)malloc(sizeof(Mobilidade));
-
-	if (novo != NULL)
+	while (mobilidade != NULL)
 	{
-		novo->idMobilidade = idMobilidade;
-		strcpy(novo->tipo, tipo);
-		novo->nivel_bateria = nivel_bateria;
-		novo->autonomia = autonomia;
-		novo->seguinte = mobilidade;
-		return(novo);
+		if (mobilidade->idMobilidade == idMobilidade)
+		{
+			return(1);
+			mobilidade = mobilidade->seguinte;
+		}
 	}
-	else
-	{
-		return(mobilidade);
-	}
+	return(o);
 }
 
 // Função para remover um registo de uma mobilidade pelo ID

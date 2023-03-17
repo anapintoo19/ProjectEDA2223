@@ -132,8 +132,8 @@ Cliente* removeCliente(Cliente* cliente) {
 Cliente* editaCliente(Cliente* cliente) {
 	
 	int idCliente;
-	char newName[];
-	char newHousehold[];
+	char newName[50];
+	char newHousehold[50];
 	int newNIF;
 	float newSaldo;
 

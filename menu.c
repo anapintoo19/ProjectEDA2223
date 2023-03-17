@@ -301,7 +301,7 @@ Cliente* desassociaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 
 	while (cliAux != NULL)
 	{
-		ClienteMobilidade* CliMobAux = cliAux->mobilidade;
+		ClienteMobilidade* CliMobAux = cliAux->mobilidadeAlugada;
 
 		while (CliMobAux != NULL)
 		{

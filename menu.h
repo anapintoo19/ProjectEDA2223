@@ -13,13 +13,13 @@ void mostrarMobilidade();
 
 #pragma endregion
 
-//mobilidadeEletrica* mobility_list = NULL;
-//cliente* customer_list = NULL;
-//gestor* manager_list = NULL;
-
 #pragma region CLIENTE
 
-
+Cliente* criaCliente(Cliente* cliente);
+Cliente* removeCliente(Cliente* cliente);
+Cliente* editaCliente(Cliente* cliente);
+Cliente* associaMobilidade(Cliente* cliente, Mobilidade* mobilidade);
+Cliente* desassociaMobilidade(Cliente* cliente, Mobilidade* mobilidade);
 
 #pragma endregion
 

@@ -87,7 +87,6 @@ void dadosExportados(Cliente* cliente, Gestor* gestor, Mobilidade* mobilidade) {
 	printf("****************************************************************************\n");
 	printf("*                  OS DADOS FORAM EXPORTADOS COM SUCESSO                   *\n");
 	printf("****************************************************************************\n");
-
 }
 
 
@@ -105,6 +104,10 @@ int main() {
 	// Inserção de Clientes Predefinidos
 	Cliente* cli = NULL;
 
+	cli = inserirCliente(cli, 1, "Alberta", "Rua das Fontainhas", 259874123, 20);
+	cli = inserirCliente(cli, 1, "Joel", "Rua dos Joelhos", 256963520, 50);
+	cli = inserirCliente(cli, 1, "Ulisses", "Rua da Escola", 147456852, 10);
+
 
 	// Inserção de Gestores Predefinidos
 	Gestor* ges = NULL;
@@ -116,9 +119,9 @@ int main() {
 	// Inserção de Mobilidade Predefinidas
 	Mobilidade* mo = NULL;
 
-	mo = inserirMobilidade(mo, 1, "Bicicleta Elétrica", 50.5, 60.00, 1);
-	mo = inserirMobilidade(mo, 2, "Trotinete Elétrica", 80.0, 100.00, 5);
-	mo = inserirMobilidade(mo, 2, "Skate Elétrica", 20.7, 40.00, 10);
+	mo = inserirMobilidade(mo, 1, "Bicicleta Elétrica", 50.5, 60.00);
+	mo = inserirMobilidade(mo, 2, "Trotinete Elétrica", 80.0, 100.00);
+	mo = inserirMobilidade(mo, 2, "Skate Elétrica", 20.7, 40.00);
 
 	do
 	{

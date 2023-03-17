@@ -279,9 +279,12 @@ int main() {
 				system("cls");
 			} while (subOption != 0);
 			break;
+		case 4:
+			dadosExportados(cli, ges, mo);
+			system("pause");
+			break;
 
 		case 0:
-			guardarClientes(cli);
 			system("exit");
 			break;
 
@@ -291,6 +294,7 @@ int main() {
 			break;
 
 		}
+		system("cls");
 	} while (option != 0);
 
 }

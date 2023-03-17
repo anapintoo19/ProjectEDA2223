@@ -238,10 +238,91 @@ Cliente* associaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 	}
 }
 
+// Desassociar Mobilidades
 
+Cliente* desassociaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
+	int idCliente = 0, idMobilidade = 0, found = 0;
 
+	do
+	{
+		listarClientes(cliente, mobilidade);
 
+		printf("ID do Cliente: ");
+		scanf("%d", &idCliente);
 
+		Cliente* cliAux = cliente;
+
+		while (cliAux != NULL && cliAux->nifCliente != idCliente)
+		{
+			cliAux = cliAux->seguinte;
+		}
+
+		if (cliAux == NULL) {
+			idCliente = 0;
+			system("cls");
+			printf("Escolha invalida\n");
+			system("pause");
+			system("cls");
+		}
+	} while (idCliente == 0);
+
+	system("cls");
+
+	do
+	{
+		printf("ID do Cliente: %d\n", idCliente);
+
+		listarMobilidades(mobilidade);
+
+		printf("ID da Mobilidade Para Desassociar: ");
+		scanf("%d", &idMobilidade);
+
+		Mobilidade* mobAux = mobilidade;
+
+		while (mobAux != NULL && mobAux->id != idMobilidade)
+		{
+			mobAux = mobAux->seguinte;
+		}
+
+		if (mobAux == NULL) {
+			idMobilidade = 0;
+			system("cls");
+			printf("Escolha invalida\n");
+			system("pause");
+			system("cls");
+		}
+
+	} while idMobilidade == 0();
+
+	// Verificar se existe mobilidades já não associadas
+
+	Cliente* cliAux = cliente;
+
+	while (cliAux != NULL)
+	{
+		ClienteMobilidade* CliMobAux = cliAux->mobilidade;
+
+		while (CliMobAux != NULL)
+		{
+			if (CliMobAux->nifCliente == idCliente && CliMobAux->id == idMobilidade)
+			{
+				found = 1;
+			}
+			CliMobAux = CliMobAux->seguinte;
+		}
+		cliAux = cliAux->seguinte;
+	}
+
+	if (found == 1)
+	{
+		return desassociarMobilidade(cliente, idCliente, idMobilidade);
+	}
+	else
+	{
+		printf("\n\nA Mobilidade '%d' não está associada a Cliente '%d'\n", idMobilidade, idCliente);
+		return cliente;
+	}
+}
 
 #pragma endregion
 

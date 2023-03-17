@@ -7,50 +7,58 @@
 
 #define MAXNOME 40
 
-// Cria e Guarda Dados num File
-// Guardar Dados dos Clientes
-int guardarClientes(Cliente* cliente)
-{
-	FILE* fp;
-	fp = fopen("clientes.txt", "w");
-	if (fp != NULL)
+// Cria e Guarda Dados num File, ou seja, exporta Dados
+
+void dadosExportados(Cliente* cliente, Gestor* gestor, Mobilidade* mobilidade) {
+
+	remove("ExportaDados.txt");
+
+	FILE* exportaFile = fopen("ExportaDados.txt", "a");
+
+	Cliente* cliAux = cliente;
+
+	fprintf(exportaFile, "****************************************************************************\n");
+	fprintf(exportaFile, "*                      LISTA DE CLIENTE E MOBILIDADES                      *\n");
+	fprintf(exportaFile, "****************************************************************************\n\n");
+
+	if (cliente != NULL)
 	{
-		Cliente* aux = cliente;
-		while (aux != NULL)
+		fprintf(exportaFile, "ID cliente: %d   Nome: %s   Morada: %s   NIF: %d   Saldo: %.2f\n", cliAux->idCliente, cliAux->nomeCliente, cliAux->moradaCliente, cliAux->nifCliente, cliAux->saldo);
+
+		ClienteMobilidade* CliMobAux = cliAux->mobilidadeAlugada;
+
+		if (CliMobAux != NULL)
 		{
-			printf("teste");
-			fprintf(fp, "%d;%s;%s;%d;%.2f\n", aux->idCliente, aux->nomeCliente,
-				aux->moradaCliente, aux->nifCliente, aux->saldo);
-			aux = aux->seguinte;
+			while (CliMobAux != NULL)
+			{
+				Mobilidade* mobAux = mobilidade;
+
+				while (mobAux != NULL && mobAux->idMobilidade != CliMobAux->id)
+				{
+					mobAux = mobAux->seguinte;
+				}
+
+				fprintf(exportaFile, "ID: %d    Tipo de Mobilidade: %s    Nível de Bateria: %.2f   Autonomia: %.2f\n", mobAux->idMobilidade, mobAux->tipo, mobAux->nivel_bateria, mobAux->autonomia);
+
+				CliMobAux = CliMobAux->seguinte;
+			}
 		}
-		fclose(fp);
-		return(1);
+		else
+		{
+			fprintf(exportaFile, "\tSem Mobilidades Alugadas\n");
+		}
+
+		fprintf(exportaFile, "****************************************************************************\n\n");
+		fprintf(exportaFile, "****************************************************************************\n\n");
+
+		cliAux = cliAux->seguinte;
 	}
-	else return(0);
+	else
+	{
+		fprintf(exportaFile, "Sem Clientes a apresentar\n");
+	}
 }
 
-Cliente* lerClientes()
-{
-	FILE* fp;
-	int idCliente;
-	char nomeCliente, moradaCliente;
-	int nifCliente;
-	float saldo;
-	Cliente* aux = NULL;
-	fp = fopen("clientes.txt", "r");
-	if (fp != NULL)
-	{
-		while (!feof(fp))
-		{
-			fscanf(fp, "%d;%s;%s;%d;%.2f\n", &idCliente, &nomeCliente, &moradaCliente, &nifCliente, &saldo);
-			aux = inserirCliente(aux, idCliente, nomeCliente, moradaCliente, nifCliente, saldo);
-		}
-		fclose(fp);
-	}
-	return(aux);
-}
-
-//Guardar Dados dos Gestores
 
 int main() {
 

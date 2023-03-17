@@ -199,7 +199,7 @@ Cliente* associaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 
 		Mobilidade* mobAux = mobilidade;
 
-		while (mobAux != NULL && mobAux->id != idMobilidade)
+		while (mobAux != NULL && mobAux->idMobilidade != id)
 		{
 			mobAux = mobAux->seguinte;
 		}
@@ -280,7 +280,7 @@ Cliente* desassociaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 
 		Mobilidade* mobAux = mobilidade;
 
-		while (mobAux != NULL && mobAux->id != idMobilidade)
+		while (mobAux != NULL && mobAux->idMobilidade != id)
 		{
 			mobAux = mobAux->seguinte;
 		}

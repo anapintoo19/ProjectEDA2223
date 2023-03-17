@@ -330,47 +330,32 @@ Cliente* desassociaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 
 // Função para inserir um gestor
 
-int checkGestorId(Gestor* gh, int idGestor) {
-
-	Gestor* aux = gh;
-
-	while (aux != NULL) {
-
-
-		if (idGestor == aux->idGestor) {
-			return 1;
-		}
-		aux = aux->seguinte;
-	}
-
-	return 0;
-}
-
-
 Gestor* criaGestor(Gestor* gestor) {
 	int idGestor;
 	char nomeGestor[MAXNAME];
 	char password[MAXNAME];
-	Gestor* gestores = NULL;
-
+	
 	printf("ID do gestor: ");
 	scanf("%d", &idGestor);
-	printf("Nome do gestor: ");
-	scanf("%s", &nomeGestor);
-	printf("Insira a password: ");
-	scanf("%s", &password);
 
-	
+	Gestor* gesAux = gestor;
 
-	if (checkGestorId(gestor, idGestor)) {
-
-		printf("	nO gestor id %d já existe", idGestor);
-		return gestor;
+	while (gesAux != NULL && (gesAux->idGestor != idGestor))
+	{
+		gesAux = gesAux->seguinte;
 	}
 
-
-
-
+	if (gesAux != NULL)
+	{
+		printf("\nJá existe um Gestor com o ID '%d'\n", idGestor);
+	}
+	else
+	{
+		printf("Nome do gestor: ");
+		scanf("%s", &nomeGestor);
+		printf("Insira a password: ");
+		scanf("%s", &password);
+	}
 
 	return inserirGestor(gestor, idGestor, nomeGestor, password);
 

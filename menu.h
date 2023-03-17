@@ -35,6 +35,8 @@ Gestor* editaGestor(Gestor* gestor);
 
 #pragma region MOBILIDADE
 
-
+Mobilidade* criaMobilidade(Mobilidade* mobilidade);
+Mobilidade* removeMobilidade(Mobilidade* mobilidade);
+Mobilidade* editaMobilidade(Mobilidade* mobilidade);
 
 #pragma endregion

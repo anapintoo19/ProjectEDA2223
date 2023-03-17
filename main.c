@@ -145,7 +145,7 @@ int main() {
 				{
 
 				case 1:
-					listarClientes(cli);
+					listarClientes(cli, mo);
 					system("pause");
 					break;
 
@@ -160,7 +160,15 @@ int main() {
 					break;
 
 				case 4:
-					cli = alterarCliente(cli);
+					cli = editaCliente(cli);
+					system("pause");
+					break;
+				case 5:
+					cli = associaMobilidade(cli, mo);
+					system("pause");
+					break;
+				case 6:
+					cli = desassociaMobilidade(cli, mo);
 					system("pause");
 					break;
 

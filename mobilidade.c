@@ -11,7 +11,7 @@ void listarMobilidade(Mobilidade* mobilidade) {
 
 	while (mobilidade != NULL)
 	{
-		printf("ID: %d    Tipo de Mobilidade: %s    Nível de Bateria: %.2f   Autonomia:%.2f  Mobilidade Alugada? %d", mobilidade->idMobilidade, mobilidade->tipo, mobilidade->nivel_bateria, mobilidade->autonomia);
+		printf("ID: %d    Tipo de Mobilidade: %s    Nível de Bateria: %.2f   Autonomia: %.2f\n", mobilidade->idMobilidade, mobilidade->tipo, mobilidade->nivel_bateria, mobilidade->autonomia);
 		mobilidade = mobilidade->seguinte;
 	}
 	printf("\n****************************************************************************\n");

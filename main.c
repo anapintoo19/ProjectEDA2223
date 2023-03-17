@@ -258,7 +258,11 @@ int main() {
 					break;
 
 				case 4:
-					mo = alterarMobilidade(mo);
+					mo = editaMobilidade(mo);
+					system("pause");
+					break;
+				case 5:
+					listarMobilidadesDESC(mo);
 					system("pause");
 					break;
 

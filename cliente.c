@@ -24,7 +24,7 @@ void listarClientes(Cliente* cliente, Mobilidade* mobilidade)
 			{
 				while (climobAux != NULL)
 				{
-					Mobilidade* mobAux = mobilidadeAlugada;
+					Mobilidade* mobAux = mobilidade;
 
 					while (mobAux != NULL && mobAux->idMobilidade != climobAux->id)
 					{

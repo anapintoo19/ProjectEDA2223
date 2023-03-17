@@ -26,3 +26,4 @@ int existeMobilidade(Mobilidade* mobilidade, int idMobilidade);
 Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tipo[], float nível_bateria, float autonomia);
 Mobilidade* removerMobilidade(Mobilidade* mobilidade, int idMobilidade);
 Mobilidade* alterarMobilidade(Mobilidade* mobilidade, int idMobilidade, char tipo[], float nivel_bateria, float autonomia);
+void listarMobilidadesDESC(Mobilidade* mobilidade);

@@ -328,7 +328,7 @@ Cliente* desassociaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 
 #pragma region GESTOR
 
-// Função para inserir um gestor
+// Função para cria um gestor
 
 Gestor* criaGestor(Gestor* gestor) {
 	int idGestor;
@@ -374,23 +374,26 @@ Gestor* removeGestor(Gestor* gestor) {
 	return removeGestor(gestor, idGestor);
 }
 
-// Função para alterar um gestor
+// Função para edita um gestor
 
-Gestor* alterarGestor(Gestor* gestor, int idGestor, char nomeNovo[]) {
-	Gestor* nodoAtual = gestor;
-	Gestor* nodoAnterior;
+Gestor* editaGestor(Gestor* gestor) {
+	
+	char novoNomeGestor[MAXNAME];
+	char novaPassword[MAXNAME];
+	int idGestor;
 
-	while (nodoAtual != NULL && nodoAtual->idGestor != idGestor)
-	{
-		nodoAnterior = nodoAtual;
-		nodoAtual = nodoAtual->seguinte;
-	}
+	listarGestores(gestor);
 
-	if (nodoAtual != NULL) {
-		strcpy(nodoAtual->nomeGestor, nomeNovo);
-	}
+	printf("ID do Gestor que prentende editar: ");
+	scanf("%d", &idGestor);
 
-	return(gestor);
+	printf("Novo Nome do Gestor: ");
+	scanf("%s", &novoNomeGestor);
+
+	printf("Nova Password do Gestor: ");
+	scanf("%s", &novaPassword);
+
+	return alterarGestor(gestor, idGestor, novoNomeGestor, novaPassword);
 }
 
 #pragma endregion

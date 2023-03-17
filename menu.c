@@ -293,7 +293,7 @@ Cliente* desassociaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 			system("cls");
 		}
 
-	} while idMobilidade == 0();
+	} while (idMobilidade == 0);
 
 	// Verificar se existe mobilidades já não associadas
 

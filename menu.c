@@ -113,6 +113,7 @@ Cliente* criaCliente(Cliente* cliente) {
 }
 
 // Função remover cliente
+
 Cliente* removeCliente(Cliente* cliente) {
 
 	int idCliente;
@@ -125,21 +126,34 @@ Cliente* removeCliente(Cliente* cliente) {
 	return removeCliente(cliente, idCliente);
 }
 
-// Função para alterar um cliente
-Cliente* alterarCliente(Cliente* cliente, int nifCliente, char nomeNovo[]) {
-	Cliente* nodoAtual = cliente;
-	Cliente* nodoAnterior;
+// Função para edita um cliente
 
-	while (nodoAtual != NULL && nodoAtual->nifCliente != nifCliente) {
-		nodoAnterior = nodoAtual;
-		nodoAtual = nodoAtual->seguinte;
-	}
+Cliente* editaCliente(Cliente* cliente) {
+	
+	int idCliente;
+	char newName[];
+	char newHousehold[];
+	int newNIF;
+	float newSaldo;
 
-	if (nodoAtual != NULL) {
-		strcpy(nodoAtual->nomeCliente ,nomeNovo);
-	}
+	listarsomenteClientes(cliente);
 
-	return(cliente);
+	printf("ID do Cliente que pretende editar; ");
+	scanf("%d", &idCliente);
+
+	printf("Novo Nome do Cliente: ");
+	scanf("%s", &newName);
+
+	printf("Nova Morada do Cliente: ");
+	scanf("%s", &newHousehold);
+
+	printf("Novo NIF do Cliente: ");
+	scanf("%d", &newNIF);
+
+	printf("Novo Saldo do Cliente: ");
+	scanf("%.2f", &newSaldo);
+
+	return alterarCliente(cliente, idCliente, newName, newHousehold, newNIF, newSaldo);
 }
 
 #pragma endregion

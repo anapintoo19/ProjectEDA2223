@@ -4,6 +4,9 @@
 #include <locale.h>
 #include <conio.h>
 #include "menu.h"
+#pragma warning(disable : 4996)
+
+
 
 #define MAXNOME 40
 

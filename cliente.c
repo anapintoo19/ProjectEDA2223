@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "cliente.h"
+#pragma warning(disable : 4996)
 
 
 // Função para Listar todos os clientes e mobilidades elétricas que estejam associadas
@@ -76,8 +77,8 @@ Cliente* inserirCliente(Cliente* cliente, int idCliente, char nomeCliente[], cha
 		if (novo != NULL) 
 		{
 			novo->idCliente = idCliente;
-			strcpy_s(novo->nomeCliente, nomeCliente);
-			strcpy_s(novo->moradaCliente, moradaCliente);
+			strcpy(novo->nomeCliente, nomeCliente);
+			strcpy(novo->moradaCliente, moradaCliente);
 			novo->nifCliente = nifCliente;
 			novo->saldo = saldo;
 			novo->mobilidadeAlugada = NULL;
@@ -159,8 +160,8 @@ Cliente* alterarCliente(Cliente* cliente, int idNovo, char nomeNovo[], char mora
 	if (nodoAtual != NULL)
 	{
 		nodoAtual->idCliente = idNovo;
-		strcpy_s(nodoAtual->nomeCliente, nomeNovo);
-		strcpy_s(nodoAtual->moradaCliente, moradaNovo);
+		strcpy(nodoAtual->nomeCliente, nomeNovo);
+		strcpy(nodoAtual->moradaCliente, moradaNovo);
 		nodoAtual->nifCliente = nifCliente;
 		nodoAtual->saldo = saldo;
 	}

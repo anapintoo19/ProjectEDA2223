@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <locale.h>
 #include "menu.h"
+#pragma warning(disable : 4996)
 
 
 #define MAXNAME 50

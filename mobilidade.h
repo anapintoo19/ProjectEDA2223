@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning(disable : 4996)
 
 // Estrutura para representar um meio de mobilidade elétrica
 

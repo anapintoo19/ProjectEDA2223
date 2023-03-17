@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "mobilidade.h"
+#pragma warning(disable : 4996)
+
 
 // Função para listar as mobilidades
 
@@ -29,7 +31,7 @@ Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tip
 		if (novo != NULL)
 		{
 			novo->idMobilidade = idMobilidade;
-			strcpy_s(novo->tipo, tipo);
+			strcpy(novo->tipo, tipo);
 			novo->nivel_bateria = nivel_bateria;
 			novo->autonomia = autonomia;
 			novo->seguinte = mobilidade;
@@ -113,7 +115,7 @@ Mobilidade* alterarMobilidade(Mobilidade* mobilidade, int idMobilidade, char tip
 	if (nodoAtual != NULL)
 	{
 		nodoAtual->idMobilidade = idMobilidade;
-		strcpy_s(nodoAtual->tipo, tipo);
+		strcpy(nodoAtual->tipo, tipo);
 		nodoAtual->nivel_bateria = nivel_bateria;
 		nodoAtual->autonomia = autonomia;
 	}
@@ -142,7 +144,7 @@ void listarMobilidadesDESC(Mobilidade* mobilidade) {
 	for (int i = 0; i < numMobilidade; i++)
 	{
 		mobArray[i].idMobilidade = nodoAtual->idMobilidade;
-		strcpy_s(mobArray[i].tipo, nodoAtual->tipo);
+		strcpy(mobArray[i].tipo, nodoAtual->tipo);
 		mobArray[i].nivel_bateria = nodoAtual->nivel_bateria;
 		mobArray[i].autonomia = nodoAtual->autonomia;
 		nodoAtual = nodoAtual->seguinte;

@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "gestor.h"
+#pragma warning(disable : 4996)
+
 
 // Função para Listar todas os gestores
 void listarGestores(Gestor* gestor)
@@ -26,8 +28,8 @@ Gestor* inserirGestor(Gestor* gestor, int idGestor, char nomeGestor[], char pass
 
 		if (novo != NULL) {
 			novo->idGestor = idGestor;
-			strcpy_s(novo->nomeGestor, nomeGestor);
-			strcpy_s(novo->password, password);
+			strcpy(novo->nomeGestor, nomeGestor);
+			strcpy(novo->password, password);
 			novo->seguinte = gestor;
 
 			return(novo);
@@ -107,8 +109,8 @@ Gestor* alterarGestor(Gestor* gestor, int idGestor, char nomeGestorNovo[], char 
 
 	if (nodoAtual != NULL)
 	{
-		strcpy_s(nodoAtual->nomeGestor, nomeGestorNovo);
-		strcpy_s(nodoAtual->password, passwordNova);
+		strcpy(nodoAtual->nomeGestor, nomeGestorNovo);
+		strcpy(nodoAtual->password, passwordNova);
 	}
 
 	return(gestor);

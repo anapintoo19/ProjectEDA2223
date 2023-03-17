@@ -1,8 +1,8 @@
-#pragma warning(disable : 4996)
 #include <stdio.h>
 #include "mobilidade.h"
 #include "gestor.h"
 #include "cliente.h"
+#pragma warning(disable : 4996)
 
 #pragma region MENUS
 

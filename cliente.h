@@ -21,7 +21,7 @@ typedef struct cliente
     // Saldo disponível do cliente
     float saldo; 
     // Ponteiro para a estrutura do meio de mobilidade elétrica alugado pelo cliente que pode ser usada para armazenar informações cobre a mobilidade do cliente
-    struct ClienteMobilidade* mobilidadeAlugada; 
+    struct clientemobilidade* mobilidadeAlugada; 
     // Ponteiro para o próximo cliente na lista
     struct cliente* seguinte;
 

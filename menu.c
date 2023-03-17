@@ -364,7 +364,7 @@ Gestor* criaGestor(Gestor* gestor) {
 // Função de remover um gestor
 
 Gestor* removeGestor(Gestor* gestor) {
-	int idGestor = 0;
+	int idGestor;
 
 	listarGestores(gestor);
 

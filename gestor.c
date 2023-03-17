@@ -107,7 +107,7 @@ Gestor* alterarGestor(Gestor* gestor, int idGestor, char nomeGestorNovo[], char 
 	if (nodoAtual != NULL)
 	{
 		strcpy(nodoAtual->nomeGestor, nomeGestorNovo);
-		strcpy(nodoAtual->~´, passwordNova);
+		strcpy(nodoAtual->password, passwordNova);
 	}
 
 	return(gestor);

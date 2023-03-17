@@ -414,7 +414,7 @@ Mobilidade* criaMobilidade(Mobilidade* mobilidade) {
 
 	Mobilidade* mobAux = mobilidade;
 
-	while (mobAux != NULL && (mobAux->idMobilidade != idMovilidad))
+	while (mobAux != NULL && (mobAux->idMobilidade != idMobilidade))
 	{
 		mobAux = mobAux->seguinte;
 	}

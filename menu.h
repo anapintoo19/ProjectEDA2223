@@ -39,5 +39,6 @@ Gestor* editaGestor(Gestor* gestor);
 Mobilidade* criaMobilidade(Mobilidade* mobilidade);
 Mobilidade* removeMobilidade(Mobilidade* mobilidade);
 Mobilidade* editaMobilidade(Mobilidade* mobilidade);
+void listarMobilidadesDESC(Mobilidade* mobilidade);
 
 #pragma endregion

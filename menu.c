@@ -81,11 +81,11 @@ Cliente* criaCliente(Cliente* cliente) {
 	Mobilidade* mobilidadeAlugada = NULL;
 
 	printf("NIF do Cliente: ");
-	scanf("%d", &nifCliente);
+	scanf("%d", &idCliente);
 
 	Cliente* opAux = cliente;
 
-	while (opAux != NULL && (opAux->nifCliente != nifCliente))
+	while (opAux != NULL && (opAux->idCliente != idCliente))
 	{
 		opAux = opAux->seguinte;
 	}
@@ -93,6 +93,8 @@ Cliente* criaCliente(Cliente* cliente) {
 	if (opAux != NULL)
 	{
 		printf("\nJá existe um cliente com o ID '%d'\n", idCliente);
+
+		return cliente;
 	}
 	else
 	{

@@ -26,7 +26,9 @@ Cliente* desassociaMobilidade(Cliente* cliente, Mobilidade* mobilidade);
 
 #pragma region GESTOR
 
-
+Gestor* criaGestor(Gestor* gestor);
+Gestor* removeGestor(Gestor* gestor);
+Gestor* editaGestor(Gestor* gestor);
 
 #pragma endregion
 

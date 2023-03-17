@@ -451,23 +451,30 @@ Mobilidade* removeMobilidade(Mobilidade* mobilidade) {
 	return removeMobilidade(mobilidade, idMobilidade);
 }
 
-// Função para alterar uma mobilidade
+// Função para edita uma mobilidade
 
-Mobilidade* alterarMobilidade(Mobilidade* mobilidade, char tipo[], int novoID) {
-	Mobilidade* nodoAtual = mobilidade;
-	Mobilidade* nodoAnterior;
+Mobilidade* editaMobilidade(Mobilidade* mobilidade) {
+	
+	char novoTipo[100];
+	int novaBateria;
+	int novaAutonomia;
+	int idMobilidade;
 
-	while (nodoAtual != NULL && nodoAtual->tipo != tipo) {
-		nodoAnterior = nodoAtual;
-		nodoAtual = nodoAtual->seguinte;
-	}
+	listarMobilidade(mobilidade);
 
-	if (nodoAtual != NULL)
-	{
-		strcpy(nodoAtual->idMobilidade, novoID);
-	}
+	printf("ID da Mobilidade que pretende Editar: ");
+	scanf("%d", &idMobilidade);
 
-	return(mobilidade);
+	printf("Novo Tipo de Mobilidade: ");
+	scanf("%s", &novoTipo);
+
+	printf("Percentagem da Bateria da nova Mobilidade: ");
+	scanf("%d", &novaBateria);
+
+	printf("Percentagem da Autonomia da nova Mobilidade:");
+	scanf("%d", &novaAutonomia);
+
+	return alterarMobilidade(mobilidade, idMobilidade, novoTipo, novaBateria, novaAutonomia);
 }
 
 #pragma endregion

@@ -211,6 +211,31 @@ Cliente* associaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 			system("cls");
 		}
 	} while (idMobilidade == 0);
+
+	// Verificar se existe mobilidade já associadas
+
+	Cliente* cliAux = cliente;
+
+	while (cliAux != NULL)
+	{
+		ClienteMobilidade* CliMobAux = cliAux->mobilidadeAlugada;
+
+		while (CliMobAux != NULL)
+		{
+			if (CliMobAux->nifCliente == idCliente && CliMobAux->id == idMobilidade)
+			{
+				found = 1;
+			}
+			CliMobAux = CliMobAux->seguinte;
+		}
+		if (found == 1)
+		{
+			printf("\n\n A Mobilidade '%d' já está associada a um Cliente '%d'\n", idMobilidade, idCliente);
+			return cliente;
+		}
+
+		return associaMobilidade(cliente, idCliente, idMobilidade);
+	}
 }
 
 

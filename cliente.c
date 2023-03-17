@@ -76,8 +76,8 @@ Cliente* inserirCliente(Cliente* cliente, int idCliente, char nomeCliente[], cha
 		if (novo != NULL) 
 		{
 			novo->idCliente = idCliente;
-			strcpy(novo->nomeCliente, nomeCliente);
-			strcpy(novo->moradaCliente, moradaCliente);
+			strcpy_s(novo->nomeCliente, nomeCliente);
+			strcpy_s(novo->moradaCliente, moradaCliente);
 			novo->nifCliente = nifCliente;
 			novo->saldo = saldo;
 			novo->mobilidadeAlugada = NULL;
@@ -159,8 +159,8 @@ Cliente* alterarCliente(Cliente* cliente, int idNovo, char nomeNovo[], char mora
 	if (nodoAtual != NULL)
 	{
 		nodoAtual->idCliente = idNovo;
-		strcpy(nodoAtual->nomeCliente, nomeNovo);
-		strcpy(nodoAtual->moradaCliente, moradaNovo);
+		strcpy_s(nodoAtual->nomeCliente, nomeNovo);
+		strcpy_s(nodoAtual->moradaCliente, moradaNovo);
 		nodoAtual->nifCliente = nifCliente;
 		nodoAtual->saldo = saldo;
 	}

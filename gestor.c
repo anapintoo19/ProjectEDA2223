@@ -26,8 +26,8 @@ Gestor* inserirGestor(Gestor* gestor, int idGestor, char nomeGestor[], char pass
 
 		if (novo != NULL) {
 			novo->idGestor = idGestor;
-			strcpy(novo->nomeGestor, nomeGestor);
-			strcpy(novo->password, password);
+			strcpy_s(novo->nomeGestor, nomeGestor);
+			strcpy_s(novo->password, password);
 			novo->seguinte = gestor;
 
 			return(novo);
@@ -107,8 +107,8 @@ Gestor* alterarGestor(Gestor* gestor, int idGestor, char nomeGestorNovo[], char 
 
 	if (nodoAtual != NULL)
 	{
-		strcpy(nodoAtual->nomeGestor, nomeGestorNovo);
-		strcpy(nodoAtual->password, passwordNova);
+		strcpy_s(nodoAtual->nomeGestor, nomeGestorNovo);
+		strcpy_s(nodoAtual->password, passwordNova);
 	}
 
 	return(gestor);

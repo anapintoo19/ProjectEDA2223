@@ -125,3 +125,57 @@ Mobilidade* alterarMobilidade(Mobilidade* mobilidade, int idMobilidade, char tip
 
 	return(mobilidade);
 }
+
+// Função para apresentar uma lista com mobilidades por ordem decrescente de autonomia
+
+void listarMobilidadesDESC(Mobilidade* mobilidade) {
+
+	// Obter número de meios de mobilidades na lista
+	int numMobilidade = 0;
+	Mobilidade* nodoAtual = mobilidade;
+
+	while (nodoAtual != NULL)
+	{
+		numMobilidade++;
+		nodoAtual = nodoAtual->seguinte;
+	}
+
+	// Armazenar os dados dos meios de mobilidades em um vetor de estruturas
+	Mobilidade* mobArray = malloc(numMobilidade * sizeof(Mobilidade));
+	nodoAtual = mobilidade;
+
+	for (int i = 0; i < numMobilidade; i++)
+	{
+		mobArray[i].idMobilidade = nodoAtual->idMobilidade;
+		strcpy(mobArray[i].tipo, nodoAtual->tipo);
+		mobArray[i].nivel_bateria = nodoAtual->nivel_bateria;
+		mobArray[i].autonomia = nodoAtual->autonomia;
+		nodoAtual = nodoAtual->seguinte;
+	}
+
+	// Ordenar o vetor de meios de mobilidades em ordem decrescente de autonomia
+
+	for (int i = 0; i < numMobilidade; i++)
+	{
+		int max = i;
+		for (int j = i + 1; j < numMobilidade; j++)
+		{
+			if (mobArray[j].autonomia > mobArray[max].autonomia)
+			{
+				max = j;
+			}
+		}
+
+		Mobilidade temp = mobArray[i];
+		mobArray[i] = mobArray[max];
+		mobArray[max] = temp;
+	}
+
+	// Imprimir os dados dos meios de mobilidade na ordem do vetor ordenado
+	for (int i = 0; i < numMobilidade; i++)
+	{
+		printf("ID: %d    Tipo de Mobilidade: %s    Nível de Bateria: %.2f   Autonomia: %.2f\n", mobArray[i].idMobilidade, mobArray[i].tipo, mobArray[i].nivel_bateria, mobArray[i].autonomia);
+		printf("\n****************************************************************************\n");
+	}
+	free(mobArray);
+}

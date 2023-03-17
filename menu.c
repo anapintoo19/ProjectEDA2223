@@ -16,6 +16,7 @@ void mostrarMenu() {
 	printf("* 1. Cliente                      *\n");
 	printf("* 2. Gestor                       *\n");
 	printf("* 3. Mobilidade                   *\n");
+	printf("* 4. Exportar Dados               *\n");
 	printf("* 0. Sair                         *\n");
 	printf("***********************************\n");
 	printf("Opcao: ");

@@ -213,7 +213,7 @@ int main() {
 					break;
 
 				case 4:
-					ges = alterarGestor(ges);
+					ges = editaGestor(ges);
 					system("pause");
 					break;
 

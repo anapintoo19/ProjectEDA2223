@@ -124,7 +124,7 @@ int main() {
 
 	mo = inserirMobilidade(mo, 1, "Bicicleta Elétrica", 50.5, 60.00);
 	mo = inserirMobilidade(mo, 2, "Trotinete Elétrica", 80.0, 100.00);
-	mo = inserirMobilidade(mo, 2, "Skate Elétrica", 20.7, 40.00);
+	mo = inserirMobilidade(mo, 3, "Skate Elétrica", 20.7, 40.00);
 
 	do
 	{
@@ -264,6 +264,7 @@ int main() {
 					mo = editaMobilidade(mo);
 					system("pause");
 					break;
+
 				case 5:
 					listarMobilidadesDESC(mo);
 					system("pause");

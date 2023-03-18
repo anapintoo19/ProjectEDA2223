@@ -35,14 +35,18 @@ Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tip
 			novo->nivel_bateria = nivel_bateria;
 			novo->autonomia = autonomia;
 			novo->seguinte = mobilidade;
-			return(novo);
-		}
-		else
-		{
-			return(mobilidade);
-		}
-	}
 
+			// se a lista estava vazia, atualiza o valor do ponteiro mobilidade
+			if (mobilidade == NULL)
+			{
+				mobilidade = novo;
+			}
+			return novo;
+		}
+		
+	}
+	// retorna o valor atualizado de mobilidade, mesmo se a condição não for verdadeira
+	return mobilidade;
 	
 }
 
@@ -55,8 +59,9 @@ int existeMobilidade(Mobilidade* mobilidade, int idMobilidade) {
 		if (mobilidade->idMobilidade == idMobilidade)
 		{
 			return(1);
-			mobilidade = mobilidade->seguinte;
+			
 		}
+		mobilidade = mobilidade->seguinte;
 	}
 	return(0);
 }

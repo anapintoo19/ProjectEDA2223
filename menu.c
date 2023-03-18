@@ -81,7 +81,7 @@ Cliente* criaCliente(Cliente* cliente) {
 	
 	Mobilidade* mobilidadeAlugada = NULL;
 
-	printf("NIF do Cliente: ");
+	printf("ID do Cliente: \n");
 	scanf("%d", &idCliente);
 
 	Cliente* opAux = cliente;
@@ -99,19 +99,19 @@ Cliente* criaCliente(Cliente* cliente) {
 	}
 	else
 	{
-		printf("ID do cliente: \n");
-		scanf("%d", &idCliente);
+		/* printf("ID do cliente: \n");
+		scanf("%d", &idCliente);*/
 
-		printf("Nome do cliente: \n");
-		scanf("%s", &nomeCliente);
+		printf("\nNome do cliente: \n");
+		gets(nomeCliente);
 
-		printf("Morada: \n");
-		scanf("%s", &moradaCliente);
+		printf("\nMorada: \n");
+		gets(moradaCliente);
 
-		printf("NIF: \n");
+		printf("\nNIF: \n");
 		scanf("%d", &nifCliente);
 
-		printf("Saldo: \n");
+		printf("\nSaldo: \n");
 		scanf("%f", &saldo);
 
 	}
@@ -198,7 +198,7 @@ Cliente* associaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 	{
 		printf("NIF do Cliente: %d\n", idCliente);
 
-		listarMobilidades(mobilidade);
+		listarMobilidade(mobilidade);
 
 		printf("ID da Mobilidade Para Associar: ");
 		scanf("%d", &idMobilidade);
@@ -279,7 +279,7 @@ Cliente* desassociaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 	{
 		printf("ID do Cliente: %d\n", idCliente);
 
-		listarMobilidades(mobilidade);
+		listarMobilidade(mobilidade);
 
 		printf("ID da Mobilidade Para Desassociar: ");
 		scanf("%d", &idMobilidade);
@@ -378,7 +378,7 @@ Gestor* removeGestor(Gestor* gestor) {
 	printf("ID do gestor que pretende remover: ");
 	scanf("%d", &idGestor);
 
-	return removeGestor(gestor, idGestor);
+	return removerGestor(gestor, idGestor);
 }
 
 // Função para edita um gestor
@@ -411,7 +411,7 @@ Gestor* editaGestor(Gestor* gestor) {
 
 Mobilidade* criaMobilidade(Mobilidade* mobilidade) {
 	int idMobilidade;
-	char tipo[100];
+	char tipo[40];
 	float nivel_bateria;
 	float autonomia; 
 

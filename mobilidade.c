@@ -35,18 +35,14 @@ Mobilidade* inserirMobilidade(Mobilidade* mobilidade, int idMobilidade, char tip
 			novo->nivel_bateria = nivel_bateria;
 			novo->autonomia = autonomia;
 			novo->seguinte = mobilidade;
-
-			// se a lista estava vazia, atualiza o valor do ponteiro mobilidade
-			if (mobilidade == NULL)
-			{
-				mobilidade = novo;
-			}
-			return novo;
+			return (novo);
+		}
+		else
+		{
+			return (mobilidade);
 		}
 		
 	}
-	// retorna o valor atualizado de mobilidade, mesmo se a condição não for verdadeira
-	return mobilidade;
 	
 }
 
@@ -62,6 +58,7 @@ int existeMobilidade(Mobilidade* mobilidade, int idMobilidade) {
 			
 		}
 		mobilidade = mobilidade->seguinte;
+		
 	}
 	return(0);
 }
@@ -70,43 +67,42 @@ int existeMobilidade(Mobilidade* mobilidade, int idMobilidade) {
 
 Mobilidade* removerMobilidade(Mobilidade* mobilidade, int idMobilidade) {
 
-	Mobilidade* anterior = mobilidade, * atual = mobilidade, * aux;
+	Mobilidade* anterior = mobilidade, *atual = mobilidade, *aux;
 
 	if (atual == NULL)
 	{
 		return NULL;
 	}
+	else if (atual->idMobilidade == idMobilidade)
+	{
+		aux = atual->seguinte;
+		free(atual);
+		return aux;
+	}
 	else
 	{
-		if (atual->idMobilidade == idMobilidade)
+		while ((atual != NULL) && (atual->idMobilidade != idMobilidade))
 		{
-			aux = atual->seguinte;
-			free(atual);
+			anterior = atual;
+			atual = atual->seguinte;
+		}
+		if (atual == NULL)
+		{
+			return(mobilidade);
 		}
 		else
 		{
-			while ((atual != NULL) && (atual->idMobilidade != idMobilidade))
-			{
-				anterior = atual;
-				atual = atual->seguinte;
-			}
-			if (atual == NULL)
-			{
-				return(mobilidade);
-			}
-			else
-			{
-				anterior->seguinte;
-				free(atual);
-				return(mobilidade);
-			}
+			anterior->seguinte = atual->seguinte;
+			free(atual);
+			return(mobilidade);
 		}
+		
 	}
 }
 
 // Função para alterar um registo de uma mobilidade 
 
-Mobilidade* alterarMobilidade(Mobilidade* mobilidade, int idMobilidade, char tipo[], float nivel_bateria, float autonomia) {
+Mobilidade* alterarMobilidade(Mobilidade* mobilidade, int idMobilidade, char Tiponovo[], float nivel_bateriaNova, float autonomiaNova) {
 
 	Mobilidade* nodoAtual = mobilidade;
 	Mobilidade* nodoAnterior;
@@ -119,10 +115,9 @@ Mobilidade* alterarMobilidade(Mobilidade* mobilidade, int idMobilidade, char tip
 
 	if (nodoAtual != NULL)
 	{
-		nodoAtual->idMobilidade = idMobilidade;
-		strcpy(nodoAtual->tipo, tipo);
-		nodoAtual->nivel_bateria = nivel_bateria;
-		nodoAtual->autonomia = autonomia;
+		strcpy(nodoAtual->tipo, Tiponovo);
+		nodoAtual->nivel_bateria = nivel_bateriaNova;
+		nodoAtual->autonomia = autonomiaNova;
 	}
 
 	return(mobilidade);

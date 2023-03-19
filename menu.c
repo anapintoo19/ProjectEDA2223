@@ -3,10 +3,18 @@
 #include <stdlib.h>
 #include <locale.h>
 #include "menu.h"
+
+
 #pragma warning(disable : 4996)
 
-
 #define MAXNAME 50
+
+void flushstdin(void)
+{
+	int c;
+	while ((c = getchar()) != '\n' && c != EOF)
+		;
+}
 
 #pragma region MENUS
 
@@ -32,7 +40,7 @@ void mostrarCliente() {
 	printf("* 3. Remover Cliente              *\n");
 	printf("* 4. Alterar Cliente              *\n");
 	printf("* 5. Associar Mobilidade          *\n");
-	printf("* 5. Desassociar Mobilidade       *\n");
+	printf("* 6. Desassociar Mobilidade       *\n");
 	printf("* 0. Sair                         *\n");
 	printf("***********************************\n");
 	printf("Opcao: ");
@@ -79,58 +87,58 @@ Cliente* criaCliente(Cliente* cliente) {
 	int nifCliente;
 	float saldo;
 	
-	Mobilidade* mobilidadeAlugada = NULL;
 
-	printf("ID do Cliente: \n");
-	scanf("%d", &idCliente);
+	printf("NIF do Cliente: \n");
+	scanf("%d", &nifCliente);
 
-	Cliente* opAux = cliente;
+	Cliente* cliAux = cliente;
 
-	while (opAux != NULL && (opAux->idCliente != idCliente))
+	while (cliAux != NULL && (cliAux->nifCliente != nifCliente))
 	{
-		opAux = opAux->seguinte;
+		cliAux = cliAux->seguinte;
 	}
 
-	if (opAux != NULL)
+	if (cliAux != NULL)
 	{
-		printf("\nJá existe um cliente com o ID '%d'\n", idCliente);
+		printf("\nJá existe um cliente com o ID '%d'\n", nifCliente);
 
 		return cliente;
 	}
 	else
 	{
-		/* printf("ID do cliente: \n");
-		scanf("%d", &idCliente);*/
+		printf("ID do cliente: \n");
+		scanf("%d", &idCliente);
 
 		printf("\nNome do cliente: \n");
-		gets(nomeCliente);
+		flushstdin();
+		scanf("%s", &nomeCliente);
 
 		printf("\nMorada: \n");
-		gets(moradaCliente);
-
-		printf("\nNIF: \n");
-		scanf("%d", &nifCliente);
+		flushstdin();
+		scanf("%s", &moradaCliente);
 
 		printf("\nSaldo: \n");
 		scanf("%f", &saldo);
 
 	}
 
-	return inserirCliente(cliente, idCliente, nomeCliente, moradaCliente, nifCliente, saldo);
+	return inserirCliente(cliente, nifCliente, idCliente, nomeCliente, moradaCliente, saldo);
+
+
 }
 
 // Função remover cliente
 
 Cliente* removeCliente(Cliente* cliente) {
 
-	int idCliente;
+	int nifCliente;
 
 	listarsomenteClientes(cliente);
 
-	printf("ID do Cliente que pretende remover: ");
-	scanf("%d", &idCliente);
+	printf("NIF do Cliente que pretende remover: ");
+	scanf("%d", &nifCliente);
 
-	return removeCliente(cliente, idCliente);
+	return removerCliente(cliente, nifCliente);
 }
 
 // Função para edita um cliente
@@ -172,7 +180,7 @@ Cliente* associaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 	{
 		listarClientes(cliente, mobilidade);
 
-		printf("ID do Cliente: ");
+		printf("NIF do Cliente: ");
 		scanf("%d", &idCliente);
 
 		Cliente* cliAux = cliente;
@@ -196,7 +204,7 @@ Cliente* associaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 
 	do
 	{
-		printf("NIF do Cliente: %d\n", idCliente);
+		printf("ID do Cliente: %d\n", idCliente);
 
 		listarMobilidade(mobilidade);
 
@@ -235,14 +243,17 @@ Cliente* associaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 			}
 			CliMobAux = CliMobAux->seguinte;
 		}
-		if (found == 1)
-		{
-			printf("\n\n A Mobilidade '%d' já está associada a um Cliente '%d'\n", idMobilidade, idCliente);
-			return cliente;
-		}
-
-		return associaMobilidade(cliente, idCliente, idMobilidade);
+		cliAux = cliAux->seguinte;
 	}
+
+	if (found == 1)
+	{
+		printf("\n\n A Mobilidade '%d' já está associada a um Cliente '%d'\n", idMobilidade, idCliente);
+		return cliente;
+	}
+
+	return associarMobilidade(cliente, idCliente, idMobilidade);
+	
 }
 
 // Desassociar Mobilidades
@@ -254,7 +265,7 @@ Cliente* desassociaMobilidade(Cliente* cliente, Mobilidade* mobilidade) {
 	{
 		listarClientes(cliente, mobilidade);
 
-		printf("ID do Cliente: ");
+		printf("NIF do Cliente: ");
 		scanf("%d", &idCliente);
 
 		Cliente* cliAux = cliente;
@@ -360,7 +371,9 @@ Gestor* criaGestor(Gestor* gestor) {
 	{
 		printf("Nome do gestor: ");
 		scanf("%s", &nomeGestor);
+
 		printf("Insira a password: ");
+		flushstdin();
 		scanf("%s", &password);
 	}
 
@@ -398,6 +411,7 @@ Gestor* editaGestor(Gestor* gestor) {
 	scanf("%s", &novoNomeGestor);
 
 	printf("Nova Password do Gestor: ");
+	flushstdin();
 	scanf("%s", &novaPassword);
 
 	return alterarGestor(gestor, idGestor, novoNomeGestor, novaPassword);
@@ -433,12 +447,14 @@ Mobilidade* criaMobilidade(Mobilidade* mobilidade) {
 	else
 	{
 		printf("Tipo de Mobilidade: ");
-		scanf("%s", &tipo);
+		scanf("%s", tipo);
 
 		printf("Nível da Bateria: ");
+		flushstdin();
 		scanf("%.2f", &nivel_bateria);
 
 		printf("Autonomia: ");
+		flushstdin();
 		scanf("%.2f", &autonomia);
 	}
 
@@ -455,14 +471,14 @@ Mobilidade* removeMobilidade(Mobilidade* mobilidade) {
 	printf("ID da mobilidade que pretende remover: ");
 	scanf("%d", &idMobilidade);
 
-	return removeMobilidade(mobilidade, idMobilidade);
+	return removerMobilidade(mobilidade, idMobilidade);
 }
 
 // Função para edita uma mobilidade
 
 Mobilidade* editaMobilidade(Mobilidade* mobilidade) {
 	
-	char novoTipo[100];
+	char novoTipo[MAXNAME];
 	int novaBateria;
 	int novaAutonomia;
 	int idMobilidade;
@@ -476,9 +492,11 @@ Mobilidade* editaMobilidade(Mobilidade* mobilidade) {
 	scanf("%s", &novoTipo);
 
 	printf("Percentagem da Bateria da nova Mobilidade: ");
+	flushstdin();
 	scanf("%d", &novaBateria);
 
 	printf("Percentagem da Autonomia da nova Mobilidade:");
+	flushstdin();
 	scanf("%d", &novaAutonomia);
 
 	return alterarMobilidade(mobilidade, idMobilidade, novoTipo, novaBateria, novaAutonomia);

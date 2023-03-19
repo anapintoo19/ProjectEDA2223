@@ -20,7 +20,7 @@ void listarClientes(Cliente* cliente, Mobilidade* mobilidade)
 		
 			if (climobAux == NULL)
 			{
-				printf("\tnão existe Mobilidades Associadas\n\n");
+				printf("\tNão existe Mobilidades Associadas\n\n");
 			}
 			else
 			{
@@ -34,13 +34,13 @@ void listarClientes(Cliente* cliente, Mobilidade* mobilidade)
 					}
 					if (mobAux != NULL)
 					{
-						printf("\tID: %d   Tipo de Mobilidade: %s   Bateria: %.2f   Autonomia: %.2f\n", mobAux->idMobilidade, mobAux->tipo, mobAux->nivel_bateria, mobAux->autonomia);
+						printf("\tID: %d   Tipo de Mobilidade: %s   Bateria: %.2f   Autonomia: %.2f km\n", mobAux->idMobilidade, mobAux->tipo, mobAux->nivel_bateria, mobAux->autonomia);
 					}
 					climobAux = climobAux->seguinte;
 				}
 			}
 			
-		cliente = climobAux->seguinte;
+		    cliente = cliente->seguinte;
 		
 	}
 	printf("****************************************************************************\n\n");
@@ -69,17 +69,17 @@ void listarsomenteClientes(Cliente* cliente) {
 
 // Função para Criar um Novo Registo de um novo cliente (inserção de um novo cliente)
 
-Cliente* inserirCliente(Cliente* cliente, int idCliente, char nomeCliente[], char moradaCliente[], int nifCliente, float saldo) {
+Cliente* inserirCliente(Cliente* cliente, int nifCliente, int idCliente, char nomeCliente[], char moradaCliente[], float saldo) {
 
 	if (!existeCliente(cliente, nifCliente))
 	{
-		Cliente* novo = (Cliente*)malloc(sizeof(Cliente));
+		Cliente* novo = (Cliente*)malloc(sizeof ( struct cliente));
 		if (novo != NULL) 
 		{
+			novo->nifCliente = nifCliente;
 			novo->idCliente = idCliente;
 			strcpy(novo->nomeCliente, nomeCliente);
 			strcpy(novo->moradaCliente, moradaCliente);
-			novo->nifCliente = nifCliente;
 			novo->saldo = saldo;
 			novo->mobilidadeAlugada = NULL;
 			novo->seguinte = cliente;
@@ -88,6 +88,10 @@ Cliente* inserirCliente(Cliente* cliente, int idCliente, char nomeCliente[], cha
 		else {
 			return(cliente);
 		}
+	}
+	else
+	{
+		return cliente;
 	}
 	
 }
@@ -101,8 +105,10 @@ int existeCliente(Cliente* cliente, int nifCliente) {
 		if (cliente->nifCliente == nifCliente)
 		{
 			return(1);
+			
 		}
 		cliente = cliente->seguinte;
+		
 	}
 	return(0);
 }
@@ -110,39 +116,38 @@ int existeCliente(Cliente* cliente, int nifCliente) {
 // Função para remover um registo de cliente pelo seu NIF
 Cliente* removerCliente(Cliente* cliente, int nifCliente) {
 
-	Cliente* anterior = cliente, * atual = cliente, * aux;
+	Cliente* anterior = cliente, *atual = cliente, *aux;
 
 	if (atual == NULL)
 	{
 		return NULL;
 	}
+	else if (atual->nifCliente == nifCliente)
+	{
+		aux = atual->seguinte;
+		free(atual);
+		return aux;
+	}
 	else
 	{
-		if (atual->nifCliente == nifCliente)
+		while ((atual != NULL) && (atual->nifCliente != nifCliente))
 		{
-			aux = atual->seguinte;
-			free(atual);
+			anterior = atual;
+			atual = atual->seguinte;
+		}
+		if (atual == NULL)
+		{
+			return(cliente);
 		}
 		else
 		{
-			while ((atual != NULL) && (atual->nifCliente != nifCliente))
-			{
-				anterior = atual;
-				atual = atual->seguinte;
-			}
-			if (atual == NULL)
-			{
-				return(cliente);
-			}
-			else
-			{
-				anterior->seguinte = atual->seguinte;
-				free(atual);
-				return(cliente);
-			}
+			anterior->seguinte = atual->seguinte;
+			free(atual);
+			return(cliente);
 		}
 	}
 }
+
 
 // Função para alterar os dados de um determinado cliente através do seu NIF
 

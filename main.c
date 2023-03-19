@@ -4,6 +4,8 @@
 #include <locale.h>
 #include <conio.h>
 #include "menu.h"
+
+
 #pragma warning(disable : 4996)
 
 
@@ -108,8 +110,8 @@ int main() {
 	Cliente* cli = NULL;
 
 	cli = inserirCliente(cli, 1, "Alberta", "Rua das Fontainhas", 259874123, 20);
-	cli = inserirCliente(cli, 1, "Joel", "Rua dos Joelhos", 256963520, 50);
-	cli = inserirCliente(cli, 1, "Ulisses", "Rua da Escola", 147456852, 10);
+	cli = inserirCliente(cli, 2, "Joel", "Rua dos Joelhos", 256963520, 50);
+	cli = inserirCliente(cli, 3, "Ulisses", "Rua da Escola", 147456852, 10);
 
 
 	// Inserção de Gestores Predefinidos
@@ -125,6 +127,10 @@ int main() {
 	mo = inserirMobilidade(mo, 1, "Bicicleta Elétrica", 50.5, 60.00);
 	mo = inserirMobilidade(mo, 2, "Trotinete Elétrica", 80.0, 100.00);
 	mo = inserirMobilidade(mo, 3, "Skate Elétrica", 20.7, 40.00);
+
+	// Associação de Mobilidades aos Clientes
+	cli = associarMobilidade(cli, 259874123, 1);
+	cli = associarMobilidade(cli, 256963520, 3);
 
 	do
 	{

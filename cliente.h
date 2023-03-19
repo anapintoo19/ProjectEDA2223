@@ -51,4 +51,4 @@ Cliente* inserirCliente(Cliente* cliente, int idCliente, char nomeCliente[], cha
 Cliente* removerCliente(Cliente* cliente, int nifCliente);
 Cliente* alterarCliente(Cliente* cliente, int idCliente, char nomeCliente[], char moradaCliente[], int nifCliente, float saldo);
 Cliente* associarMobilidade(Cliente* cliente, int idCliente, int idMob);
-Cliente* desassociarMobilidade(Cliente* cliente, int idCliente, int idMob);
+Cliente* desassociarMobilidade(Cliente* cliente, int idCliente, int idMobilidade);

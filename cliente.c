@@ -197,7 +197,7 @@ Cliente* associarMobilidade(Cliente* cliente, int idCliente, int idMob) {
 
 // Função para desassociar uma mobilidade a um cliente
 
-Cliente* desassociarMobilidade(Cliente* cliente, int idCliente, int idMob) {
+Cliente* desassociarMobilidade(Cliente* cliente, int idCliente, int idMobilidade) {
 
 	Cliente* nodoAtual = cliente;
 	Cliente* nodoAnterior = NULL;
@@ -214,7 +214,7 @@ Cliente* desassociarMobilidade(Cliente* cliente, int idCliente, int idMob) {
 		return cliente;
 	}
 
-	mobilidadeAtual = nodoAtual->mobilidade;
+	mobilidadeAtual = nodoAtual->mobilidadeAlugada;
 
 	while (mobilidadeAtual != NULL && mobilidadeAtual->id != idMobilidade) {
 		mobilidadeAnterior = mobilidadeAtual;
@@ -226,7 +226,7 @@ Cliente* desassociarMobilidade(Cliente* cliente, int idCliente, int idMob) {
 	}
 
 	if (mobilidadeAnterior == NULL) {
-		nodoAtual->mobilidade = mobilidadeAtual->seguinte;
+		nodoAtual->mobilidadeAlugada = mobilidadeAtual->seguinte;
 	}
 	else {
 		mobilidadeAnterior->seguinte = mobilidadeAtual->seguinte;

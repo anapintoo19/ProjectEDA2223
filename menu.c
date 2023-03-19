@@ -82,10 +82,10 @@ void mostrarMobilidade() {
 Cliente* criaCliente(Cliente* cliente) {
 
 	int nifCliente;
-	int idCliente = 0;
+	int idCliente;
 	char nomeCliente[MAXNAME];
 	char moradaCliente[MAXNAME];
-	float saldo = 0.0;
+	float saldo;
 	
 
 	printf("NIF do Cliente: \n");

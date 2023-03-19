@@ -73,7 +73,7 @@ Cliente* inserirCliente(Cliente* cliente, int nifCliente, int idCliente, char no
 
 	if (!existeCliente(cliente, nifCliente))
 	{
-		Cliente* novo = (Cliente*)malloc(sizeof (Cliente));
+		Cliente* novo = (Cliente*)malloc(sizeof ( struct cliente));
 		if (novo != NULL) 
 		{
 			novo->nifCliente = nifCliente;
@@ -125,7 +125,7 @@ Cliente* removerCliente(Cliente* cliente, int nifCliente) {
 	}
 	else
 	{
-		while ((atual != NULL) && (atual->nifCliente != nifCliente))
+		while((atual != NULL) && (atual->nifCliente != nifCliente))
 		{
 			anterior = atual;
 			atual = atual->seguinte;

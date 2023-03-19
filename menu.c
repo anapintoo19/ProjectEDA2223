@@ -151,21 +151,25 @@ Cliente* editaCliente(Cliente* cliente) {
 	int newNIF;
 	float newSaldo;
 
-	listarsomenteClientes(cliente);
+	/*listarsomenteClientes(cliente);*/
 
 	printf("ID do Cliente que pretende editar: ");
 	scanf("%d", &idCliente);
 
 	printf("Novo Nome do Cliente: ");
+	flushstdin();
 	scanf("%s", &newName);
 
 	printf("Nova Morada do Cliente: ");
+	flushstdin();
 	scanf("%s", &newHousehold);
 
 	printf("Novo NIF do Cliente: ");
+	flushstdin();
 	scanf("%d", &newNIF);
 
 	printf("Novo Saldo do Cliente: ");
+	flushstdin();
 	scanf("%.2f", &newSaldo);
 
 	return alterarCliente(cliente, idCliente, newName, newHousehold, newNIF, newSaldo);

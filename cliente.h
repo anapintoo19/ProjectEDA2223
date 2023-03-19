@@ -47,7 +47,7 @@ typedef struct clientemobilidade {
 void listarClientes(Cliente* cliente, Mobilidade* mobilidade);
 void listarsomenteClientes(Cliente* cliente);
 int existeCliente(Cliente* cliente, int nifCliente);
-Cliente* inserirCliente(Cliente* cliente, int idCliente, char nomeCliente[], char moradaCliente[], int nifCliente, float saldo);
+Cliente* inserirCliente(Cliente* cliente, int nifCliente, int idCliente, char nomeCliente[], char moradaCliente[], float saldo);
 Cliente* removerCliente(Cliente* cliente, int nifCliente);
 Cliente* alterarCliente(Cliente* cliente, int idCliente, char nomeCliente[], char moradaCliente[], int nifCliente, float saldo);
 Cliente* associarMobilidade(Cliente* cliente, int idCliente, int idMob);

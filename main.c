@@ -109,9 +109,9 @@ int main() {
 	// Inserção de Clientes Predefinidos
 	Cliente* cli = NULL;
 
-	cli = inserirCliente(cli, 1, "Alberta", "Rua das Fontainhas", 259874123, 30);
-	cli = inserirCliente(cli, 2, "Joel", "Rua dos Joelhos", 256963520, 50);
-	cli = inserirCliente(cli, 3, "Ulisses", "Rua da Escola", 147456852, 10);
+	cli = inserirCliente(cli, 259874123, 1, "Alberta", "Rua das Fontainhas", 20.0);
+	cli = inserirCliente(cli, 256963520, 2, "Joel", "Rua dos Joelhos", 50.0);
+	cli = inserirCliente(cli, 147456852, 3, "Ulisses", "Rua da Escola", 10.0);
 
 
 	// Inserção de Gestores Predefinidos

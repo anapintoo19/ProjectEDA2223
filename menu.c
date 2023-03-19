@@ -118,6 +118,7 @@ Cliente* criaCliente(Cliente* cliente) {
 		scanf("%s", &moradaCliente);
 
 		printf("\nSaldo: \n");
+		flushstdin();
 		scanf("%f", &saldo);
 
 	}
@@ -153,7 +154,7 @@ Cliente* editaCliente(Cliente* cliente) {
 
 	listarsomenteClientes(cliente);
 
-	printf("ID do Cliente que pretende editar; ");
+	printf("ID do Cliente que pretende editar: ");
 	scanf("%d", &idCliente);
 
 	printf("Novo Nome do Cliente: ");

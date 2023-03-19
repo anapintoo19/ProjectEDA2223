@@ -133,7 +133,7 @@ Cliente* removeCliente(Cliente* cliente) {
 
 	int nifCliente;
 
-	listarsomenteClientes(cliente);
+	/*listarsomenteClientes(cliente);*/
 
 	printf("NIF do Cliente que pretende remover: ");
 	scanf("%d", &nifCliente);

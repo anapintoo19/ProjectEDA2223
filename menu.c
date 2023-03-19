@@ -81,11 +81,11 @@ void mostrarMobilidade() {
 
 Cliente* criaCliente(Cliente* cliente) {
 
-	int idCliente;
+	int nifCliente;
+	int idCliente = 0;
 	char nomeCliente[MAXNAME];
 	char moradaCliente[MAXNAME];
-	int nifCliente;
-	float saldo;
+	float saldo = 0.0;
 	
 
 	printf("NIF do Cliente: \n");
@@ -102,11 +102,10 @@ Cliente* criaCliente(Cliente* cliente) {
 	{
 		printf("\nJá existe um cliente com o ID '%d'\n", nifCliente);
 
-		return cliente;
 	}
 	else
 	{
-		printf("ID do cliente: \n");
+		printf("\nID do cliente: \n");
 		scanf("%d", &idCliente);
 
 		printf("\nNome do cliente: \n");

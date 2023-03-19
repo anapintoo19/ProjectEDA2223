@@ -73,7 +73,7 @@ Cliente* inserirCliente(Cliente* cliente, int nifCliente, int idCliente, char no
 
 	if (!existeCliente(cliente, nifCliente))
 	{
-		Cliente* novo = (Cliente*)malloc(sizeof ( struct cliente));
+		Cliente* novo = (Cliente*)malloc(sizeof (Cliente));
 		if (novo != NULL) 
 		{
 			novo->nifCliente = nifCliente;
@@ -89,11 +89,6 @@ Cliente* inserirCliente(Cliente* cliente, int nifCliente, int idCliente, char no
 			return(cliente);
 		}
 	}
-	else
-	{
-		return cliente;
-	}
-	
 }
 
 // Função para Verificar se um registo de um cliente já existe pelo NIF

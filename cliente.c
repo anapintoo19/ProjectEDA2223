@@ -199,4 +199,40 @@ Cliente* associarMobilidade(Cliente* cliente, int idCliente, int idMob) {
 
 Cliente* desassociarMobilidade(Cliente* cliente, int idCliente, int idMob) {
 
+	Cliente* nodoAtual = cliente;
+	Cliente* nodoAnterior = NULL;
+	ClienteMobilidade* mobilidadeAtual = NULL;
+	ClienteMobilidade* mobilidadeAnterior = NULL;
+
+	while (nodoAtual != NULL && nodoAtual->nifCliente != idCliente)
+	{
+		nodoAnterior = nodoAtual;
+		nodoAtual = nodoAtual->seguinte;
+	}
+
+	if (nodoAtual == NULL) {
+		return cliente;
+	}
+
+	mobilidadeAtual = nodoAtual->mobilidade;
+
+	while (mobilidadeAtual != NULL && mobilidadeAtual->id != idMobilidade) {
+		mobilidadeAnterior = mobilidadeAtual;
+		mobilidadeAtual = mobilidadeAtual->seguinte;
+	}
+
+	if (mobilidadeAtual == NULL) {
+		return cliente;
+	}
+
+	if (mobilidadeAnterior == NULL) {
+		nodoAtual->mobilidade = mobilidadeAtual->seguinte;
+	}
+	else {
+		mobilidadeAnterior->seguinte = mobilidadeAtual->seguinte;
+	}
+
+	free(mobilidadeAtual);
+
+	return cliente;
 }

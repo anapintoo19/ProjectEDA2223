@@ -2,7 +2,7 @@
 *                      LISTA DE CLIENTE E MOBILIDADES                      *
 ****************************************************************************
 
-ID cliente: 1   Nome: Ulisses   Morada: Rua da Escola   NIF: 147456852   Saldo: 10,00
+ID cliente: 3   Nome: Ulisses   Morada: Rua da Escola   NIF: 147456852   Saldo: 10,00
 	Sem Mobilidades Alugadas
 ****************************************************************************
 
@@ -10,6 +10,12 @@ ID cliente: 1   Nome: Ulisses   Morada: Rua da Escola   NIF: 147456852   Saldo: 
 
 ****************************************************************************
 *                      LISTA DE GESTORES                                   *
+****************************************************************************
+
+ID: 5     Nome: Pinto     Password: pintopintoasdv
+****************************************************************************
+
+ID: 4     Nome: Ana     Password: anapintoqwer
 ****************************************************************************
 
 ID: 3     Nome: Ana Almeida     Password: anaAlmeida

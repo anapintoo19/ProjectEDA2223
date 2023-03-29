@@ -146,7 +146,7 @@ Cliente* removerCliente(Cliente* cliente, int nifCliente) {
 
 // Função para alterar os dados de um determinado cliente através do seu NIF
 
-Cliente* alterarCliente(Cliente* cliente, int idNovo, char nomeNovo[], char moradaNovo[], int nifCliente, float saldo) {
+Cliente* alterarCliente(Cliente* cliente, int nifCliente, char nomeNovo[], char moradaNovo[], float saldo) {
 
 	Cliente* nodoAtual = cliente;
 	Cliente* nodoAnterior;
@@ -159,10 +159,9 @@ Cliente* alterarCliente(Cliente* cliente, int idNovo, char nomeNovo[], char mora
 
 	if (nodoAtual != NULL)
 	{
-		nodoAtual->idCliente = idNovo;
+		nodoAtual->nifCliente = nifCliente;
 		strcpy(nodoAtual->nomeCliente, nomeNovo);
 		strcpy(nodoAtual->moradaCliente, moradaNovo);
-		nodoAtual->nifCliente = nifCliente;
 		nodoAtual->saldo = saldo;
 	}
 

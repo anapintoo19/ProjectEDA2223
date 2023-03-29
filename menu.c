@@ -145,16 +145,16 @@ Cliente* removeCliente(Cliente* cliente) {
 
 Cliente* editaCliente(Cliente* cliente) {
 	
-	int idCliente;
 	char newName[50];
 	char newHousehold[50];
-	int newNIF;
 	float newSaldo;
+	int nifCliente;
+	
 
 	/*listarsomenteClientes(cliente);*/
 
-	printf("ID do Cliente que pretende editar: ");
-	scanf("%d", &idCliente);
+	printf("NIF do Cliente que pretende editar: ");
+	scanf("%d", &nifCliente);
 
 	printf("Novo Nome do Cliente: ");
 	flushstdin();
@@ -164,15 +164,11 @@ Cliente* editaCliente(Cliente* cliente) {
 	flushstdin();
 	scanf("%s", &newHousehold);
 
-	printf("Novo NIF do Cliente: ");
-	flushstdin();
-	scanf("%d", &newNIF);
-
 	printf("Novo Saldo do Cliente: ");
 	flushstdin();
 	scanf("%.2f", &newSaldo);
 
-	return alterarCliente(cliente, idCliente, newName, newHousehold, newNIF, newSaldo);
+	return alterarCliente(cliente, nifCliente, newName, newHousehold, newSaldo);
 }
 
 // Associar uma determinada mobilidade a um cliente
@@ -451,7 +447,8 @@ Mobilidade* criaMobilidade(Mobilidade* mobilidade) {
 	else
 	{
 		printf("Tipo de Mobilidade: ");
-		scanf("%s", tipo);
+		flushstdin();
+		scanf("%s", &tipo);
 
 		printf("Nível da Bateria: ");
 		flushstdin();

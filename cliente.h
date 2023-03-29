@@ -49,6 +49,6 @@ void listarsomenteClientes(Cliente* cliente);
 int existeCliente(Cliente* cliente, int nifCliente);
 Cliente* inserirCliente(Cliente* cliente, int nifCliente, int idCliente, char nomeCliente[], char moradaCliente[], float saldo);
 Cliente* removerCliente(Cliente* cliente, int nifCliente);
-Cliente* alterarCliente(Cliente* cliente, int idCliente, char nomeCliente[], char moradaCliente[], int nifCliente, float saldo);
+Cliente* alterarCliente(Cliente* cliente, int nifCliente, char nomeNovo[], char moradaNovo[], float saldo);
 Cliente* associarMobilidade(Cliente* cliente, int idCliente, int idMob);
 Cliente* desassociarMobilidade(Cliente* cliente, int idCliente, int idMobilidade);
